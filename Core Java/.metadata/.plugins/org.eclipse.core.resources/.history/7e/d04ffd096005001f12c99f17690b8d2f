@@ -1,0 +1,65 @@
+package cdac.java.q7.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q7.item.Item;
+
+public class ItemUtils {
+	
+	public static Item addItem(Map<String, Item> itemMap, Scanner sc) {
+		System.out.println("Enter Item Details: ");
+		Item item = new Item(sc.next(), sc.next(), sc.nextDouble(), parse(sc.next()));
+		return item;
+	}
+	
+	public static void sortByItemCode(Map<String, Item> itemMap, Scanner sc) throws FileNotFoundException, IOException {
+		ArrayList<Item> list = new ArrayList<>(itemMap.values());
+		Collections.sort(list, new Comparator<Item>() {
+
+			@Override
+			public int compare(Item o1, Item o2) {
+				return o1.getItemCode().compareTo(o2.getItemCode());
+			}
+		});
+		
+		try(ObjectOutputStream oos = 
+				new ObjectOutputStream(new FileOutputStream("items_code.ser"))){
+			oos.writeObject(list);
+		}
+		System.out.println("List Written Successfully...");
+		for(Item item : list)
+			System.out.println(item);
+	}
+	
+	
+	public static void sortByItemPrice(Map<String, Item> itemMap, Scanner sc)
+			throws FileNotFoundException, IOException {
+		ArrayList<Item> list = new ArrayList<>(itemMap.values());
+		Collections.sort(list, new Comparator<Item>() {
+
+			@Override
+			public int compare(Item o1, Item o2) {
+				return o1.getItemCode().compareTo(o2.getItemCode());
+			}
+		});
+		
+		try(ObjectOutputStream oos = 
+				new ObjectOutputStream(new FileOutputStream("items_code.ser"))){
+			oos.writeObject(list);
+		}
+		System.out.println("List Written Successfully...");
+		for(Item item : list)
+			System.out.println(item);
+		
+	}
+}

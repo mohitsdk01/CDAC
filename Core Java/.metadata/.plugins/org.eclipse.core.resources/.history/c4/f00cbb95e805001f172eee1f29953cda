@@ -1,0 +1,32 @@
+package cdac.b1.tester;
+
+import static cdac.b1.utils.Utility.populateContactMap;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.b1.core.Contact;
+
+public class PhoneBookTester {
+
+	public static void main(String[] args) {
+		System.out.println("Welocome to PhoneBook");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Contact> contactMap = populateContactMap();
+			boolean exit = false;
+			int choice;
+			
+			do {
+				try {
+					
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+
+	}
+
+}

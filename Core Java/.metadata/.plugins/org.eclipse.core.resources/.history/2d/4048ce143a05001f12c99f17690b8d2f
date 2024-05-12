@@ -1,0 +1,13 @@
+package cdac.java.q6.employee;
+
+import java.time.LocalDate;
+
+public class PartTimeEmployee extends Employee {
+
+	public PartTimeEmployee(String name, LocalDate dateOfJoining, String phoneNumber, String addharNumber,
+			double salary) {
+		super(name, dateOfJoining, phoneNumber, addharNumber, salary);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

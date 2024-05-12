@@ -1,0 +1,32 @@
+package cdac.java.q8.utils;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q8.stock.Stock;
+
+public class StockUtils {
+	
+	public static Map<String ,Stock> populateMap(){
+		Map<String,Stock> stockMap = new HashMap<>();
+		stockMap.put("111ABC", new Stock("111ABC", "Chromium electronics", 
+				"Havells", 200.0, LocalDate.parse("2024-02-23"),50));
+		stockMap.put("112ABC", new Stock("112ABC", "Diapers", 
+				"Pampers", 20.0, LocalDate.parse("2024-10-02"),50));
+		stockMap.put("113XYZ", new Stock("113XYZ", "Laptop", 
+				"DEll", 1000.0, LocalDate.parse("2023-02-14"),75));
+		stockMap.put("114XYZ", new Stock("114XYZ", "Laptop", 
+				"Lenovo", 1200.0, LocalDate.parse("2024-02-24"),75));
+		stockMap.put("115XYZ", new Stock("115XYZ", "Pen", 
+				"Flair", 80.0, LocalDate.parse("2023-11-15"),100));
+		return stockMap;
+
+	}
+	
+	
+	public static void availabelStocksOfCompany(Map<String, Stock> stockMap) {
+		// TODO Auto-generated method stub
+		
+	}
+}

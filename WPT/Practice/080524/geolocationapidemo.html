@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getmyPosition(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showposition,showerror);
+                //navigator.geolocation.watchPosition(showposition,showerror);
+
+            }else{
+                document.getElementById("mydiv").innerHTML="no geolacation supported by browser"
+            }
+
+        }
+
+        function showposition(position){
+            document.getElementById("mydiv").innerHTML="latittude"+position.coords.latitude+"longitude: "+position.coords.longitude;
+        }
+        function showerror(err){
+            document.getElementById("mydiv").innerHTML=err;
+        }
+    </script>
+</head>
+<body>
+    <button type="button" name="show" id="show" onclick="getmyPosition()">display location</button>
+    <div id="mydiv"></div>
+</body>
+</html>

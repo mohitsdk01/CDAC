@@ -1,0 +1,28 @@
+package cdac.java.q2.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q2.task.Task;
+
+public class TaskTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME TO TASK MANAGER");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<Integer, Task> taksMap = populateMap();
+			boolean exit = false;
+			int choice;
+			do {
+				try {
+					
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+	}
+
+}

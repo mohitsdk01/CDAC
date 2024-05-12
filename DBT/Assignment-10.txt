@@ -1,0 +1,349 @@
+Assignment- 10
+-------------------------------------------------------------------------------------------------
+
+Q1: Write a procedure to find the factorial of the number.
+Hint: use only repeat loop
+
+mysql> DELIMITER &&
+mysql> 
+mysql> CREATE PROCEDURE CalculateFactorial(IN num INT)
+    -> BEGIN
+    ->     DECLARE result INT;
+    ->     DECLARE i INT;
+    ->     
+    ->     SET result = 1;
+    ->     SET i = 1;
+    ->     
+    ->     REPEAT
+    ->         SET result = result * i;
+    ->         SET i = i + 1;
+    ->     UNTIL i > num
+    ->     END REPEAT;
+    ->     
+    ->     SELECT num AS Number, result AS Factorial;
+    -> END &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> DELIMITER ;
+mysql> call CalculateFactorial(7);
++--------+-----------+
+| Number | Factorial |
++--------+-----------+
+|      7 |      5040 |
++--------+-----------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+
+
+Q2: Create a procedure to find the sum of digits of the number passed as
+parameter to it.
+Hint: use while loop
+
+mysql> DELIMITER &&
+mysql> 
+mysql> CREATE PROCEDURE CalculateDigitSum(IN num INT)
+    -> BEGIN
+    ->     DECLARE total_sum INT DEFAULT 0;
+    ->     DECLARE digit INT;
+    ->     
+    ->     WHILE num > 0 DO
+    ->         SET digit = num % 10;
+    ->         SET total_sum = total_sum + digit;
+    ->         SET num = num DIV 10 ;
+    ->     END WHILE;
+    ->     
+    ->     SELECT total_sum AS DigitSum;
+    -> END &&
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> DELIMITER ;
+mysql> call CalculateDigitSum(8742);
++----------+
+| DigitSum |
++----------+
+|       21 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+Q3: Write a procedure to print the Fibonacci sequence using any kind of the loop.
+e.g. 0, 1, 1, 2, 3, 5, 8....
+
+mysql> DELIMITER &&
+mysql> 
+mysql> CREATE PROCEDURE GenerateFib(IN num INT)
+    -> BEGIN
+    ->     DECLARE a INT DEFAULT 0;
+    ->     DECLARE b INT DEFAULT 1;
+    ->     DECLARE temp INT;
+    ->     DECLARE i INT DEFAULT 2;
+    -> 
+    ->     IF num>= 1 THEN
+    ->         SELECT a AS fib_number;
+    ->     END IF;
+    -> 
+    ->     IF num >= 2 THEN
+    ->         SELECT b AS fib_number;
+    ->     END IF;
+    -> 
+    ->     WHILE i <= num DO
+    ->         SET temp = a + b;
+    ->         SET a = b;
+    ->         SET b = temp;
+    ->         SELECT CONCAT(temp) AS fib_number;
+    ->         SET i = i + 1;
+    ->     END WHILE;
+    -> END &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> DELIMITER ;
+mysql> call GenerateFib(9);
++------------+
+| fib_number |
++------------+
+|          0 |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+|          1 |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 1          |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 2          |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 3          |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 5          |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 8          |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 13         |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 21         |
++------------+
+1 row in set (0.00 sec)
+
++------------+
+| fib_number |
++------------+
+| 34         |
++------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+Q4: Write a procedure to print all the odd and even numbers separately using
+same procedure.
+
+mysql> DELIMITER &&
+mysql> 
+mysql> CREATE PROCEDURE PrintOddEve(IN start INT, IN end INT)
+    -> BEGIN
+    ->     DECLARE num INT;
+    ->     
+    ->     SET num = start;
+    ->     
+    ->     WHILE num <= end DO
+    ->         IF num % 2 = 0 THEN
+    ->             SELECT CONCAT('Even: ', num) AS Number;
+    ->         ELSE
+    ->             SELECT CONCAT('Odd: ', num) AS Number;
+    ->         END IF;
+    ->         
+    ->         SET num = num + 1;
+    ->     END WHILE;
+    -> END &&
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> DELIMITER ;
+
+mysql> call PrintOddEve(1, 20);
++--------+
+| Number |
++--------+
+| Odd: 1 |
++--------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Even: 2 |
++---------+
+1 row in set (0.00 sec)
+
++--------+
+| Number |
++--------+
+| Odd: 3 |
++--------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Even: 4 |
++---------+
+1 row in set (0.00 sec)
+
++--------+
+| Number |
++--------+
+| Odd: 5 |
++--------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Even: 6 |
++---------+
+1 row in set (0.00 sec)
+
++--------+
+| Number |
++--------+
+| Odd: 7 |
++--------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Even: 8 |
++---------+
+1 row in set (0.00 sec)
+
++--------+
+| Number |
++--------+
+| Odd: 9 |
++--------+
+1 row in set (0.00 sec)
+
++----------+
+| Number   |
++----------+
+| Even: 10 |
++----------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Odd: 11 |
++---------+
+1 row in set (0.00 sec)
+
++----------+
+| Number   |
++----------+
+| Even: 12 |
++----------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Odd: 13 |
++---------+
+1 row in set (0.00 sec)
+
++----------+
+| Number   |
++----------+
+| Even: 14 |
++----------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Odd: 15 |
++---------+
+1 row in set (0.00 sec)
+
++----------+
+| Number   |
++----------+
+| Even: 16 |
++----------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Odd: 17 |
++---------+
+1 row in set (0.00 sec)
+
++----------+
+| Number   |
++----------+
+| Even: 18 |
++----------+
+1 row in set (0.00 sec)
+
++---------+
+| Number  |
++---------+
+| Odd: 19 |
++---------+
+1 row in set (0.00 sec)
+
++----------+
+| Number   |
++----------+
+| Even: 20 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+

@@ -1,0 +1,20 @@
+package cdac.java.q8.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q8.stock.Stock;
+import static cdac.java.q8.utils.StockUtils.populateMap;
+
+public class StockTester {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to Stock Exchange");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Stock> stockMap = populateMap();
+		}
+
+	}
+
+}

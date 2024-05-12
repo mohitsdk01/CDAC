@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //create a object
+        var ob={pid:123,pname:"Satish",mob:"1111",display:function(){
+            return `Id : ${this.pid} Name: ${this.pname} mob: ${this.mob}`
+        }}
+
+        //adding a property after creating the object
+        ob.email="aaaa@gmail.com";
+        console.log(ob.pname);
+        console.log(ob);
+        alert(ob.display());
+        alert(`${ob['pid']}  ${ob['pname']} ${ob['mob']}`);
+
+        //object for loop
+        for(var p in ob){
+            if(typeof(ob[p])!="function"){
+            document.write(`${p}--->${ob[p]}----${typeof(ob[p])}<br> `)
+            }
+        }
+
+        //constructor function
+        var Person=function(pid,pname,mob){
+            this.pid=pid;
+            this.pname=pname;
+            this.mob=mob;
+        }
+        var p1=new Person(12,'Ashu','33333');
+
+        var Employee=function(dt,ds){
+            this.dept=dt;
+            this.desg=ds;
+        }
+        var e1=new Employee("HR","Manager")
+        // Inheritance
+        e1.__proto__=p1;  //p1 is a parent of e1
+        document.write("<br><br>")
+        for(var p in e1){
+            //check whether the property is of its own property
+            if(e1.hasOwnProperty(p)){
+                document.write(`own property ${p}--->${e1[p]}----${typeof(e1[p])}<br> `)
+            }else{
+                document.write(`Parent property ${p}--->${e1[p]}----${typeof(e1[p])}<br> `) 
+            }
+           
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+package cdac.java.q2.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import static java.time.LocalDate.parse;
+import cdac.java.q2.task.Task;
+import static cdac.java.q2.utils.TaskUtils.populateMap;
+
+public class TaskTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME TO TASK MANAGER");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<Integer, Task> taskMap = populateMap();
+			boolean exit = false;
+			int choice;
+			do {
+				System.out.println("Menu: \n");
+				System.out.println("1. Add New Task\n"
+						+ "2. Delete a task\n"
+						+ "3. Update task status\n"
+						+ "4. Display all pending tasks\n"
+						+ "5. Display all pending tasks for today\n"
+						+ "6. Display all tasks sorted by taskDate\n"
+						+ "7. Display all tasks\n"
+						+ "0. Exit\n");
+				System.out.println("Enter Choice: ");
+				choice = sc.nextInt();
+				try {
+					switch(choice) {
+					case 1:
+						Task task = new Task(sc.next(), sc.next(), parse(sc.next()));
+						taskMap.put(task.getTaskId(), task);
+						System.out.println("Task Added Successfully...");
+						break;
+						
+					case 2:
+						System.out.println("Enter Task ID: ");
+						deleteTask();
+						break;
+						
+					case 3:
+						break;
+						
+					case 4:
+						break;
+						
+					case 5:
+						break;
+						
+					case 6:
+						break;
+						
+					case 7:
+						for(Task t : taskMap.values())
+							System.out.println(t);
+						break;
+						
+					case 0:
+						exit = true;
+						break;
+					}
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+	}
+
+}

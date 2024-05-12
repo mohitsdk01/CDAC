@@ -1,0 +1,18 @@
+package cdac.java.q5.core;
+
+public class Order {
+	private int orderId;
+	private int petId;
+	private int quantity;
+	private Status status;
+	
+	public Order(int orderId, int petId, int quantity, Status status) {
+		super();
+		this.orderId = orderId;
+		this.petId = petId;
+		this.quantity = quantity;
+		this.status = status;
+	}
+	
+	
+}

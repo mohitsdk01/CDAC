@@ -1,0 +1,99 @@
+package cdac.java.q6.employee;
+
+import java.time.LocalDate;
+
+public class Employee {
+	protected static int idCounter = 101;
+	protected int empId;
+	protected String name;
+	protected LocalDate dateOfJoining;
+	protected String phoneNumber;
+	protected String AddharNumber;
+	protected double salary;
+
+
+	public Employee(int empId, String name, LocalDate dateOfJoining, String phoneNumber, String addharNumber,
+			double salary) {
+		super();
+		this.empId = ++idCounter;
+		this.name = name;
+		this.dateOfJoining = dateOfJoining;
+		this.phoneNumber = phoneNumber;
+		AddharNumber = addharNumber;
+		this.salary = salary;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public LocalDate getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+
+
+	public void setDateOfJoining(LocalDate dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
+
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+
+	public String getAddharNumber() {
+		return AddharNumber;
+	}
+
+
+
+	public void setAddharNumber(String addharNumber) {
+		AddharNumber = addharNumber;
+	}
+
+
+
+	public double getSalary() {
+		return salary;
+	}
+
+
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public int getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", name=" + name + ", dateOfJoining=" + dateOfJoining + ", phoneNumber="
+				+ phoneNumber + ", AddharNumber=" + AddharNumber + ", salary=" + salary + "]";
+	}
+}

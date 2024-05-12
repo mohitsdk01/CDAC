@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //check whether user has entered admin and admin123 as
+        //username and password respectively
+        function validateuser(ev){
+            console.log(ev);
+            ev.preventDefault(); //stops the default refresh action of the page for submit button
+            var nm=document.getElementById("nm").value;
+            var pass=document.getElementById("passwd").value;
+            if(nm=="admin" && pass=="admin123"){
+               document.getElementById("mydiv").innerHTML="valid user" 
+            }else{
+                document.getElementById("mydiv").innerHTML="wrong credentials" 
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        User name: <input type="text" name="uname" id="nm"><br>
+        Password: <input type="password" name="pass" id="passwd"><br>
+        <button type="submit" name="login" id="login" onclick="validateuser(event)">Login</button>
+
+    </form>
+    <div id="mydiv">   </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+package cdac.java.q2.task;
+
+import java.time.LocalDate;
+
+public class Task {
+	private int taskId;
+	private String taskName;
+	private String taskDesc;
+	private LocalDate taskDate;
+	private Status status;
+	private boolean active;
+	
+	
+}

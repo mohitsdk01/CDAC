@@ -1,0 +1,5 @@
+package cdac.b1.exceptions;
+
+public class ContactBookException extends Exception {
+
+}

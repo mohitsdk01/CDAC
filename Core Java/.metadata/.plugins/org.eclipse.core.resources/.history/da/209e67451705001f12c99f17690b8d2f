@@ -1,0 +1,11 @@
+package cdac.java.q8.utils;
+
+import cdac.java.q8.stock.Stock;
+
+public class StocksValidation {
+	
+	public static Stock validateInput() {
+		return null;
+		
+	}
+}

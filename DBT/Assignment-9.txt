@@ -1,0 +1,231 @@
+create table student (roll int, name varchar(30), class varchar(15), marks int, age int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_CollegeF |
++--------------------+
+| student            |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+
+| roll | name            | class | marks | age  |
++------+-----------------+-------+-------+------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 |
+|    2 | Linay Bharambe  | BE    |    96 |   22 |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 |
+|    4 | Saurabh Rana    | BE    |    89 |   24 |
+|    5 | Abhi Patil      | BE    |    62 |   21 |
++------+-----------------+-------+-------+------+
+5 rows in set (0.00 sec)
+
+alter table student add column first_class varchar(20);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| roll        | int         | YES  |     | NULL    |       |
+| name        | varchar(30) | YES  |     | NULL    |       |
+| class       | varchar(15) | YES  |     | NULL    |       |
+| marks       | int         | YES  |     | NULL    |       |
+| age         | int         | YES  |     | NULL    |       |
+| first_class | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+-------------+
+| roll | name            | class | marks | age  | first_class |
++------+-----------------+-------+-------+------+-------------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 | NULL        |
+|    2 | Linay Bharambe  | BE    |    96 |   22 | NULL        |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 | NULL        |
+|    4 | Saurabh Rana    | BE    |    89 |   24 | NULL        |
+|    5 | Abhi Patil      | BE    |    62 |   21 | NULL        |
++------+-----------------+-------+-------+------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> update student set first_class =case when marks>75 then "yes" else "no" end;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 5  Changed: 2  Warnings: 0
+
+mysql> select *from student;
++------+-----------------+-------+-------+------+-------------+
+| roll | name            | class | marks | age  | first_class |
++------+-----------------+-------+-------+------+-------------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 | yes         |
+|    2 | Linay Bharambe  | BE    |    96 |   22 | yes         |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 | no          |
+|    4 | Saurabh Rana    | BE    |    89 |   24 | yes         |
+|    5 | Abhi Patil      | BE    |    62 |   21 | no          |
++------+-----------------+-------+-------+------+-------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+mysql> alter table student add column grade varchar(10);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> desc student;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| roll        | int         | YES  |     | NULL    |       |
+| name        | varchar(30) | YES  |     | NULL    |       |
+| class       | varchar(15) | YES  |     | NULL    |       |
+| marks       | int         | YES  |     | NULL    |       |
+| age         | int         | YES  |     | NULL    |       |
+| first_class | varchar(20) | YES  |     | NULL    |       |
+| grade       | varchar(10) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET grade = CASE
+    ->     WHEN marks > 75 THEN 'A+'
+    ->     WHEN marks > 60 THEN 'A'
+    ->     WHEN marks > 55 THEN 'B+'
+    ->     WHEN marks > 50 THEN 'B'
+    ->     WHEN marks > 40 THEN 'C'
+    ->     ELSE 'D'
+    -> END;
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+-------------+-------+
+| roll | name            | class | marks | age  | first_class | grade |
++------+-----------------+-------+-------+------+-------------+-------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 | yes         | A+    |
+|    2 | Linay Bharambe  | BE    |    96 |   22 | yes         | A+    |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 | no          | A     |
+|    4 | Saurabh Rana    | BE    |    89 |   24 | yes         | A+    |
+|    5 | Abhi Patil      | BE    |    62 |   21 | no          | A     |
++------+-----------------+-------+-------+------+-------------+-------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+Q-3: 
+mysql> delimiter &&
+mysql> CREATE PROCEDURE PrintSumOfNaturalNumbers()
+    -> BEGIN
+    ->     DECLARE i INT DEFAULT 1;
+    ->     DECLARE sum INT DEFAULT 0;
+    -> 
+    ->     loop: LOOP
+    ->         SET sum = sum + i;
+    ->         SET i = i + 1;
+    -> 
+    ->         IF i > 10 THEN
+    ->             LEAVE loop;
+    ->         END IF;
+    ->     END LOOP loop;
+    -> 
+    ->     SELECT sum;
+    -> END $$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> DELIMITER ;
+mysql> call PrintSumOfNaturalNumbers();
++------+
+| sum  |
++------+
+|   55 |
++------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+
+
+
+
+
+
+Q-4:
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE CheckEvenOdd(IN inputNumber INT, OUT result VARCHAR(10))
+    -> BEGIN
+    ->     DECLARE remainder INT;
+    ->     SET remainder = inputNumber % 2;
+    ->     IF remainder = 0 THEN
+    ->         SET result = 'Even';
+    ->     ELSE
+    ->         SET result = 'Odd';
+    ->     END IF;
+    -> END //
+mysql> DELIMITER ;
+
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> call CheckEvenOdd(20, @result);
+Query OK, 0 rows affected (0.00 sec)
+
++---------+
+| @result |
++---------+
+| Even    |
++---------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+Q-5:
+
+mysql> DELIMITER //
+mysql> 
+mysql> CREATE PROCEDURE CalculateGrade(IN inputMarks INT, OUT resultGrade VARCHAR(10))
+    -> BEGIN
+    ->     DECLARE grade CHAR(1);
+    ->     
+    -> 
+    ->     CASE
+    ->         WHEN inputMarks > 75 THEN SET grade = 'A+';
+    ->         WHEN inputMarks > 60 THEN SET grade = 'A';
+    ->         WHEN inputMarks > 55 THEN SET grade = 'B+';
+    ->         WHEN inputMarks > 50 THEN SET grade = 'B';
+    ->         WHEN inputMarks > 40 THEN SET grade = 'C';
+    ->         WHEN inputMarks < 40 THEN SET grade = 'D';
+    ->     END CASE;
+    ->     
+    ->     SET resultGrade = grade;
+    -> END //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> DELIMITER ;
+
+mysql> CALL CalculateGrade(80, @resultGrade);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT @resultGrade;
++--------------+
+| @resultGrade |
++--------------+
+| A+           |
++--------------+
+1 row in set (0.01 sec)
+
+

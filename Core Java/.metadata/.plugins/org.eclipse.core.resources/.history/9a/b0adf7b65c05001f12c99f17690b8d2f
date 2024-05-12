@@ -1,0 +1,43 @@
+package cdac.java.q7.tester;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q7.item.Item;
+
+public class ItemTester {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome");
+			
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Item> itemMap = new HashMap<>();
+			boolean exit = false;
+			int choice;
+			
+			do {
+				System.out.println("Menu: \n");
+				System.out.println("1. Accept minimum 5 Cricketers in the collection\n"
+						+ "2. Modify Cricketer's rating\n"
+						+ "3. Search Cricketer by name\n"
+						+ "4. Display all Cricketers added in collection\n"
+						+ "5. Display All Cricketers in sorted form by rating\n"
+						+ "0. Exit\n");
+				System.out.println("Enter Choice: ");
+				choice = sc.nextInt();
+				try {
+					switch(choice) {
+					
+					}
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

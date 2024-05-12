@@ -1,0 +1,15 @@
+package cdac.java.q2.utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q2.task.Task;
+
+public class TaskUtils {
+	
+	public static Map<Integer, Task> populateMap(){
+		Map<Integer, Task> taskMap = new HashMap<>();
+		
+		return taskMap;
+	}
+}

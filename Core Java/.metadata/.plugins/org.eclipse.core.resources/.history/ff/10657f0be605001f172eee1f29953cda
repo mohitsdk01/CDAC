@@ -1,0 +1,12 @@
+package cdac.b1.core;
+
+import java.time.LocalDate;
+
+public class Contact {
+	private String pNo;
+	private String name;
+	private LocalDate dob;
+	private String email;
+	
+	
+}

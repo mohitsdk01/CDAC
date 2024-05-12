@@ -1,0 +1,27 @@
+package cdac.dbda.q.core;
+
+import java.time.LocalDateTime;
+
+public class Grocery {
+	private String name;
+	private double price;
+	private int quantity;
+	private LocalDateTime dateTime;
+	
+	
+	@Override
+	public String toString() {
+		return "Grocery [name=" + name + ", price=" + price + ", quantity=" + quantity + ", dateTime=" + dateTime + "]";
+	}
+
+	public Grocery(String name, double price, int quantity, LocalDateTime dateTime) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+		this.dateTime = dateTime;
+	}
+	
+	
+	
+}

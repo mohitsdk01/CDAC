@@ -1,0 +1,66 @@
+package cdac.java.q2.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q2.task.Task;
+import static cdac.java.q2.utils.TaskUtils.populateMap;
+
+public class TaskTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME TO TASK MANAGER");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<Integer, Task> taksMap = populateMap();
+			boolean exit = false;
+			int choice;
+			do {
+				System.out.println("Menu: \n");
+				System.out.println("Add New Task"
+						+ "Stock,Stock Listing Date, price "
+						+ "\n"
+						+ "2. Update stock of a Pen\n"
+						+ "3. Set discount of 20% for all the pens which "
+						+ "are not at all sold in last 3 months\n"
+						+ "4. Remove Pens which are never sold once listed in 9 months\n"
+						+ "5. Display All Stocks\n"
+						+ "0. Exit\n");
+				System.out.println("Enter Choice: ");
+				choice = sc.nextInt();
+				try {
+					switch(choice) {
+					case 1:
+						break;
+						
+					case 2:
+						break;
+						
+					case 3:
+						break;
+						
+					case 4:
+						break;
+						
+					case 5:
+						break;
+						
+					case 6:
+						break;
+						
+					case 7:
+						break;
+						
+					case 0:
+						exit = true;
+						break;
+					}
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+	}
+
+}

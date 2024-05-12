@@ -1,0 +1,6 @@
+package cdac.java.q6.employee;
+
+public class FullTimeEmployee extends Employee {
+	private int i = 0;
+	
+}

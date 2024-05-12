@@ -1,0 +1,11 @@
+package cdac.java.q5.utils;
+
+import java.util.Map;
+
+import cdac.java.q5.core.Order;
+
+public class ValidateUtility {
+	public static Map<Integer, Order> orderInputValidate(){
+		return null;
+	}
+}

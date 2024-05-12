@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <script>
+        window.document.write("<h1>Hello world!!!</h1>");
+        //popup box with only ok button
+        //it is a function of window object
+        alert("This is alert window");
+        //popup box with two buttons ok and cancel button
+        //it is a function of window object
+        //if user clicks ok then it returns true 
+        //if use rclicks on cancel button then it returns false
+        ans=confirm("do you want to continue?(y/n)");
+        console.log("you selected "+ans);
+        //it shows a popup box with a text box in it, 
+        //and return a string
+        name=prompt("Enter your name");
+        document.write("<h1>"+name+"</h1>")
+        //template operator
+        document.write(`<h1>${name}</h1>`)
+    </script>
+</body>
+</html>

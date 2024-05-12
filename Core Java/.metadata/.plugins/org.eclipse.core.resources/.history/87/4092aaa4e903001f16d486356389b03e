@@ -1,0 +1,37 @@
+package cdac.java.q5.tester;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q5.users.Admin;
+import cdac.java.q5.users.Customer;
+import static cdac.java.q5.utils.DummyDataUtils.populateAdminmap;
+import static cdac.java.q5.utils.DummyDataUtils.populateCustMap;
+
+public class ShopTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME TO THE PET SHOP");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Admin> adminMap = populateAdminmap();
+			Map<String, Customer> custMap = populateCustMap();
+			
+			boolean exit = false;
+			int choice;
+			
+			do {
+				
+				try {
+					
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+				
+			}while(!exit);
+		}
+	}
+
+}

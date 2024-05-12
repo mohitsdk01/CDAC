@@ -1,0 +1,15 @@
+package cdac.b1.utils;
+
+import java.time.LocalDate;
+import static java.time.LocalDate.parse;
+
+import cdac.b1.core.Contact;
+
+public class ContactValidations {
+	public static Contact inputValidation(String pNo, String name, 
+			String dob, String email) {
+			
+				return new Contact(pNo, name, parse(dob), email);
+		
+	}
+}

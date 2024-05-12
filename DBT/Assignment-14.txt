@@ -1,0 +1,448 @@
+test> use Assignment-14
+switched to db Assignment-14
+Assignment-14> db.createCollection('books');
+{ ok: 1 }
+Assignment-14> db.books.find().pretty();
+
+Assignment-14> db.books.insert({refno:1001, name:'python programming', author: 'Shyam', coauthor:'Rakesh', pages:350, price:450})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6632866c5d88b117b12202d8') }
+}
+Assignment-14> db.books.find().pretty();
+[
+  {
+    _id: ObjectId('6632866c5d88b117b12202d8'),
+    refno: 1001,
+    name: 'python programming',
+    author: 'Shyam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  }
+]
+
+Assignment-14> db.books.insertMany([{
+... 			refno: 1002,
+...     		name: 'java programming',
+...     		author: 'Amita',
+...     		pages: 300,
+...     		price: 500
+... 		},
+... 		{
+... 			refno: 1003,
+...     		name: 'HTML',
+...     		author: 'Amita',
+...     		coauthor: 'Shyam',
+...     		pages: 225,
+...     		price: 300
+... 		},
+... 		{
+... 			refno: 1004,
+...     		name: 'mongoDB',
+...     		author: 'Shyam',
+...     		pages: 440,
+...     		price: 500
+... 		},
+... 		{
+... 			refno: 1005,
+...     		name: 'mySQL',
+...     		author: 'Shrikant',
+...     		coauthor: 'Nitin',
+...     		pages: 330,
+...     		price: 630
+... 		}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('663288375d88b117b12202d9'),
+    '1': ObjectId('663288375d88b117b12202da'),
+    '2': ObjectId('663288375d88b117b12202db'),
+    '3': ObjectId('663288375d88b117b12202dc')
+  }
+}
+Assignment-14> db.books.find().pretty();
+[
+  {
+    _id: ObjectId('6632866c5d88b117b12202d8'),
+    refno: 1001,
+    name: 'python programming',
+    author: 'Shyam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202d9'),
+    refno: 1002,
+    name: 'java programming',
+    author: 'Amita',
+    pages: 300,
+    price: 500
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202da'),
+    refno: 1003,
+    name: 'HTML',
+    author: 'Amita',
+    coauthor: 'Shyam',
+    pages: 225,
+    price: 300
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202db'),
+    refno: 1004,
+    name: 'mongoDB',
+    author: 'Shyam',
+    pages: 440,
+    price: 500
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202dc'),
+    refno: 1005,
+    name: 'mySQL',
+    author: 'Shrikant',
+    coauthor: 'Nitin',
+    pages: 330,
+    price: 630
+  }
+]
+
+Q1:
+
+Assignment-14> db.books.find({author:"Amita"}).count();
+2
+
+Q2:
+
+Assignment-14> db.books.find({author:"Shyam"}).count();
+2
+
+Q3:
+
+Assignment-14> db.books.distinct("author");
+[ 'Amita', 'Shrikant', 'Shyam' ]
+
+Q4:
+
+Assignment-14> db.books.aggregate([{$group:{_id:null,averagePrice:{$avg:"$price"}}}]);
+[ { _id: null, averagePrice: 476 } ]
+
+
+Q5:
+
+Assignment-14> db.books.aggregate([
+... {$match: {author: "Shyam"}
+... },
+... {
+... $group:{
+... _id:null,
+... totalPages:{$sum:"$pages"}
+... }
+... }
+... ])
+[ { _id: null, totalPages: 790 } ]
+
+
+Q6:
+
+Assignment-14> db.books.find().sort({pages:-1})
+[
+  {
+    _id: ObjectId('663288375d88b117b12202db'),
+    refno: 1004,
+    name: 'mongoDB',
+    author: 'Shyam',
+    pages: 440,
+    price: 500
+  },
+  {
+    _id: ObjectId('6632866c5d88b117b12202d8'),
+    refno: 1001,
+    name: 'python programming',
+    author: 'Shyam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202dc'),
+    refno: 1005,
+    name: 'mySQL',
+    author: 'Shrikant',
+    coauthor: 'Nitin',
+    pages: 330,
+    price: 630
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202d9'),
+    refno: 1002,
+    name: 'java programming',
+    author: 'Amita',
+    pages: 300,
+    price: 500
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202da'),
+    refno: 1003,
+    name: 'HTML',
+    author: 'Amita',
+    coauthor: 'Shyam',
+    pages: 225,
+    price: 300
+  }
+]
+
+
+Q7:
+
+Assignment-14> db.books.updateOne({
+... name:"mongoDB"},
+... { $set:{ refno:1014}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+Q.8:
+
+Assignment-14> db.books.countDocuments({
+... price:
+... { $gt:400
+... }})
+
+o/p => 4
+
+
+Q.9:
+
+Assignment-14> db.books.updateMany(
+... { name: "mySQL" },
+... { $unset: {coauthor:""}
+... })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Assignment-14> db.books.find();
+[
+  {
+    _id: ObjectId('6632866c5d88b117b12202d8'),
+    refno: 1001,
+    name: 'python programming',
+    author: 'Shyam',
+    coauthor: 'Rakesh',
+    pages: 350,
+    price: 450
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202d9'),
+    refno: 1002,
+    name: 'java programming',
+    author: 'Amita',
+    pages: 300,
+    price: 500
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202da'),
+    refno: 1003,
+    name: 'HTML',
+    author: 'Amita',
+    coauthor: 'Shyam',
+    pages: 225,
+    price: 300
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202db'),
+    refno: 1014,
+    name: 'mongoDB',
+    author: 'Shyam',
+    pages: 440,
+    price: 500
+  },
+  {
+    _id: ObjectId('663288375d88b117b12202dc'),
+    refno: 1005,
+    name: 'mySQL',
+    author: 'Shrikant',
+    pages: 330,
+    price: 630
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Assignment-14> db.createCollection('cricketer');
+{ ok: 1 }
+
+Assignment-14> db.cricketer.insertMany([{
+... 		name:'Ajay',
+... 		matches:58,
+... 		runs: 7009,
+... 		catches:32
+... 		},
+... 		{
+... 		name:'Vijay',
+... 		matches:32,
+... 		runs: 4205,
+... 		catches:11
+... 		},
+... 		{
+... 		name:'Ram',
+... 		matches:230,
+... 		runs: 6390,
+... 		catches:105
+... 		},
+... 		{
+... 		name:'Ahmed',
+... 		matches:192,
+... 		runs: 5502,
+... 		wickets:13,
+... 		catches:111,
+... 		stumpings:11
+... 		},
+... 		{
+... 		name:'Akshay',
+... 		matches:699101,
+... 		runs: 5502,
+... 		wickets:89,
+... 		catches:71
+... 		},
+... 		{
+... 		name:'Prem',
+... 		matches:57,
+... 		runs: 1054,
+... 		wickets:69,
+... 		catches:55
+... 		}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6632a37d8fbca4630c2202d8'),
+    '1': ObjectId('6632a37d8fbca4630c2202d9'),
+    '2': ObjectId('6632a37d8fbca4630c2202da'),
+    '3': ObjectId('6632a37d8fbca4630c2202db'),
+    '4': ObjectId('6632a37d8fbca4630c2202dc'),
+    '5': ObjectId('6632a37d8fbca4630c2202dd')
+  }
+}
+
+Q.1:
+
+Assignment-14> db.cricketer.find({ wickets: { $gt: 0 } })
+[
+  {
+    _id: ObjectId('6632a37d8fbca4630c2202db'),
+    name: 'Ahmed',
+    matches: 192,
+    runs: 5502,
+    wickets: 13,
+    catches: 111,
+    stumpings: 11
+  },
+  {
+    _id: ObjectId('6632a37d8fbca4630c2202dc'),
+    name: 'Akshay',
+    matches: 699101,
+    runs: 5502,
+    wickets: 89,
+    catches: 71
+  },
+  {
+    _id: ObjectId('6632a37d8fbca4630c2202dd'),
+    name: 'Prem',
+    matches: 57,
+    runs: 1054,
+    wickets: 69,
+    catches: 55
+  }
+]
+
+
+Q.2:
+
+Assignment-14> db.cricketer.find({ stumpings: { $gt: 0 } })
+[
+  {
+    _id: ObjectId('6632a37d8fbca4630c2202db'),
+    name: 'Ahmed',
+    matches: 192,
+    runs: 5502,
+    wickets: 13,
+    catches: 111,
+    stumpings: 11
+  }
+]
+
+
+Q.3:
+
+Assignment-14> db.cricketer.updateMany({ stumpings: { $gt: 0 } }, { $unset: { "wickets": "" } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+Q.4:
+
+Assignment-14> db.cricketer.updateOne({ name: "Ram" }, { $set: { matches: 61, wickets: 71 } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+Q.5:
+
+Assignment-14> db.cricketer.find({ catches: { $gt: 100 } })
+[
+  {
+    _id: ObjectId('6632a37d8fbca4630c2202da'),
+    name: 'Ram',
+    matches: 61,
+    runs: 6390,
+    catches: 105,
+    wickets: 71
+  },
+  {
+    _id: ObjectId('6632a37d8fbca4630c2202db'),
+    name: 'Ahmed',
+    matches: 192,
+    runs: 5502,
+    catches: 111,
+    stumpings: 11
+  }
+]
+
+
+

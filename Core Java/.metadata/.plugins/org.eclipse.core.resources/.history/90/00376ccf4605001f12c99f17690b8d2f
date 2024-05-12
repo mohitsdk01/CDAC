@@ -1,0 +1,17 @@
+package cdac.java.q6.tester;
+
+import java.util.Scanner;
+
+public class EmpTester {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to Employee Management System");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			
+			Map<Integer, Employee> empMap = populateMap();
+		}
+
+	}
+
+}

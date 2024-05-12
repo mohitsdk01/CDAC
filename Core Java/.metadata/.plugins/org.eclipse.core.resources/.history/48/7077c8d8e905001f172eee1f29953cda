@@ -1,0 +1,28 @@
+package cdac.b1.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.util.Map;
+
+import cdac.b1.core.Contact;
+import cdac.b1.exceptions.ContactBookException;
+import cdac.b1.tester.PhoneBookTester;
+
+public class ContactValidations {
+	public static Contact inputValidation(String pNo, String name, 
+			String dob, String email, Map<String, Contact>map) {
+			phoneNumberBelongsValidation(pNo, map);
+			
+				return new Contact(pNo, name, parse(dob), email);
+		
+	}
+
+	private static void phoneNumberBelongsValidation(String pNo, Map<String, Contact> map) {
+		for(Contact c : map.values()) {
+			if(c.getpNo().equals(pNo)) {
+				throw new ContactBookException(pNo + " Already Exists!")
+			}
+		}
+		
+	}
+}

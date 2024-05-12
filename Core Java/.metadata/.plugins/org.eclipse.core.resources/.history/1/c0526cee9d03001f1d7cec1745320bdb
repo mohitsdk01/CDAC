@@ -1,0 +1,56 @@
+package cdac.java.q4.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q4.cricket.Cricketer;
+import cdac.java.q4.exceptions.CricketException;
+
+public class CricketerUtils {
+	
+	public static Map<String, Cricketer> populateMap(){
+		Map<String, Cricketer> cricMap = new HashMap<>();
+		cricMap.put("rohit@gmail.com", new Cricketer("Rohit", "Sharma", 
+				36, "rohit@gmail.com", "8999257171", 5));
+		cricMap.put("virat@gmail.com", new Cricketer("Virat", "Kohali", 
+				35, "virat@gmail.com", "8806687581", 4));
+		cricMap.put("dk@gmail.com", new Cricketer("Dinesh", "Kartik", 
+				37, "dk@gmail.com", "8975632445", 4));
+		cricMap.put("msdhoni@gmail.com", new Cricketer("MS", "Dhoni", 
+				41, "msdhoni@gmail.com", "7845731058", 4));
+		cricMap.put("jasprit@gmail.com", new Cricketer("Jasprit", "Bumrah", 
+				30, "jasprit@gmail.com", "6354893109", 5));
+		return cricMap;
+	}
+	
+	public static void modifyCricketerRatings(Map<String, Cricketer> crickMap, Scanner sc)
+			throws CricketException{
+		
+		System.out.println("Enter Cricketer's First Name to whom you want to give rating: ");
+		String name  = sc.next();
+		System.out.println("Enter Rating: ");
+		int rating = sc.nextInt();
+		
+		for(Cricketer c : crickMap.values()) {
+			if(c.getFirstName().equals(name)) {
+				c.setRating(rating);
+			}
+//			else throw new CricketException("Player Not Found!!!");
+			else System.out.println("Player Not Found!!!");
+		}
+	}
+	
+	public static void searchCricketerByName(Map<String, Cricketer> crickMap, Scanner sc) 
+			throws CricketException{
+		System.out.println("Enter Cricketer's First Name and Last Name: ");
+		String name  = sc.next();
+		for(Cricketer c : crickMap.values()) {
+			if(c.getFirstName().equals(name)) {
+				System.out.println(c.getFirstName() + " " + c.getLastName());
+			}
+		}
+	}
+}

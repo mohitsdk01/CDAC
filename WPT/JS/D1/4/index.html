@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="operations.js"></script>
+</head>
+<body>
+    <h2>Arithmatic Operations:</h2>
+    <table>
+        <tr>
+            <td><label for="num1">Number-1:</label></td>
+            <td><input autofocus type="number" name="num1" id="num1"></td>
+        </tr>
+
+        <tr>
+            <td><label for="num2">Number-2:</label></td>
+            <td><input type="number" name="num2" id="num2"></td>
+        </tr>
+
+        <tr>
+            <td><label for="ops">Select Operator:</label></td>
+            <td><select name="ops" id="ops">
+                <option value="---Select---">---Select---</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select></td>
+        </tr>
+    </table>
+
+    <button type="button" style="margin-left: 70px; margin-top: 20px;">Find</button>
+    <div id="res"></div>
+</body>
+</html>

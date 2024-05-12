@@ -1,0 +1,65 @@
+package cdac.java.q4.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q4.cricket.Cricketer;
+import static cdac.java.q4.utils.CricketerUtils.populateMap;
+
+public class CricketTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Cricketer> cricketerMap = populateMap();
+			boolean exit = false;
+			int choice;
+			
+			do {
+				System.out.println("Menu: \n");
+				System.out.println("1. Add New Task\n"
+						+ "2. Delete a task\n"
+						+ "3. Update task status\n"
+						+ "4. Display all pending tasks\n"
+						+ "5. Display all pending tasks for today\n"
+						+ "6. Display all tasks sorted by taskDate\n"
+						+ "7. Display all tasks\n"
+						+ "0. Exit\n");
+				System.out.println("Enter Choice: ");
+				choice = sc.nextInt();
+				
+				try {
+					switch(choice) {
+					case 1:
+						break;
+						
+					case 2:
+						break;
+						
+					case 3:
+						break;
+						
+					case 4:
+						break;
+						
+					case 5:
+						break;
+						
+					case 6:
+						break;
+					
+					case 0:
+						exit = true;
+						break;
+					}
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+
+	}
+
+}

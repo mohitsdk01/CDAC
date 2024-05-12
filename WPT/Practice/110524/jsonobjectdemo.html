@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var a={"pid":1,"pname":'sss'};
+    alert(a);
+    var jsonob=JSON.stringify(a);
+    alert(jsonob);
+    var b=JSON.parse(jsonob);
+    alert(b);
+    var arr=[{pid:111,pname:'xxxx'},{pid:222,pname:'xxxx'}];
+    localStorage.setItem("data",JSON.stringify(arr));
+    alert(localStorage.data);
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+package cdac.java.q4.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q4.cricket.Cricketer;
+
+public class CricketerUtils {
+	
+	public static Map<String, Cricketer> populateMap(){
+		Map<String, Cricketer> cricMap = new HashMap<>();
+		cricMap.put("rohit@gmail.com", new Cricketer("Rohit", "Sharma", 36, "rohit@gmail.com", null, 0));
+		cricMap.put("virat@gmail.com", new Cricketer("Virat", "Kohali", 35, "virat@gmail.com", null, 0));
+		cricMap.put("dk@gmail.com", new Cricketer("Dinesh", "Kartik", 37, "dk@gmail.com", null, 0));
+		cricMap.put("msdhoni@gmail.com", new Cricketer("MS", "Dhoni", 41, "msdhoni@gmail.com", null, 0));
+		cricMap.put("jasprit@gmail.com", new Cricketer("Jasprit", "Bumrah", 30, "jasprit@gmail.com", null, 0));
+		return cricMap;
+	}
+}

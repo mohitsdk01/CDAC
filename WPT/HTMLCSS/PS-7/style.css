@@ -1,0 +1,32 @@
+*{
+    text-align: center;
+}
+table{    
+    border-collapse: collapse;
+    width: max-content;
+    height: max-content;
+    margin: 0 auto;
+}
+
+#month{
+    background-color: yellow;
+}
+
+#weekday{
+    background-color: #FF00FF;
+}
+
+#firstDate, #currDate{
+    background-color: yellow;
+}
+
+tr>td:last-child{
+    background-color: aqua;
+}
+tr>td:first-child{
+    background-color: limegreen;
+}
+
+#white1, #white2{
+    background-color: white;
+}

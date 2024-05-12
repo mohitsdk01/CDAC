@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            border: 2px;
+        }
+        #table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        /* #f1{
+            
+        }
+        #textarea{
+            
+        }
+
+        #buttons{
+            align-self: center;
+        }
+        #div1{
+                
+        } */
+    </style>
+</head>
+<body style="border: 2px solid rgb(3, 3, 156);">
+    <div id="div1">
+    <h1>Internet Usage Survey</h1>
+    <p>
+        This survey is being conducted to help identify the Internet usage patterns of our customers.<br>
+        Please take a few moments to complete and submit thius short form. Thank you for your cooperation.
+    </p>
+
+    <table id="table">
+        <tr>
+            <td>What type of Internet connection do you have?<br>(select one)</td>
+            <td>
+                <select name="type" id="type" size="4" multiselect>
+                    <option value="Dial-up">Dial-up</option>
+                    <option value="DSL">DSL</option>
+                    <option value="High Speed Cable">High Speed Cable</option>
+                    <option value="Other">Other</option>
+                </select>
+            </td>
+        </tr>
+
+       
+        <tr>
+            <td>What type of computer do you use most at home?</td>
+            <td>
+                <input type="radio" name="computer" value="Desktop">Desktop
+                <input type="radio" name="computer" value="Laptop">Laptop
+            </td>
+        </tr>
+
+        <tr>
+            <td>How would you describe your main reason for using the Internet</td>
+            <td><div><br>
+                <input type="radio" name = "work" value="work"> To do work related activities<br>
+                <input type="radio" name = "work" value="school"> To do school related activities<br>
+                <input type="radio" name = "work" value="entertainment"> For entertainment purpose<br>
+                <input type="radio" name = "work" value="other"> Other activities
+            </div></td>
+        </tr>
+        
+
+        <div>
+            <tr>
+                <td>
+                    <fieldset id="f1" style="height: 20vh;">
+                        <legend>Types of sites visited</legend>
+                        <p>Whta type of web sites do you access most often?</p>
+                        <p>Check all that apply.</p>
+                        <input type="radio" name="sites" value="selfImprovement">Self Improvement<br>
+                        <input type="radio" name="sites" value="entertainment">Entertainment<br>
+                        <input type="radio" name="sites" value="news">News and Sports<br>
+                        <input type="radio" name="sites" value="reference">Reference<br>
+                        <input type="radio" name="sites" value="email">Email<br>
+                    </fieldset>
+                </td>
+    
+                <td>
+                    <fieldset id="f2" style="height: 20vh;">
+                        <legend>Time spent using Internet</legend>
+                        <p>During an average week, how long do you spend online?</p>
+                        <input type="radio" name="time1" value="selfImprovement">
+                        <label for="time1">0-3 Hours</label><br>
+                        <input type="radio" name="time2" value="entertainment">4-6 Hours<br>
+                        <input type="radio" name="time3" value="news">7-10 Hours<br>
+                        <input type="radio" name="time4" value="reference">11-14 Hours<br>
+                        <input type="radio" name="time5" value="email">15+ Hours<br>
+                    </fieldset>
+                </td>
+                
+            </tr>   
+        </div>
+        
+
+        <tr>
+            <td>
+                <p>Please comment on your opinions concerning Internet Privacy and Safety.</p>
+                <textarea type="text" id="textarea" style="width: 300px; height: 60px;"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="fname">First Name</label>
+                <input type="text" id="fname"/> 
+            </td>
+            
+            <td>
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td><div><br>
+                <label for="age">Age</label>
+                <input type="text" id="age"/> 
+            </div></td>
+            
+            <td><div><br>
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" name="zip"/>
+            </div></td>
+        </tr>
+
+        <tr id="buttons">
+                <td><div><br><br>
+                    <input type="submit" name="subbtn" id="btn1" value="Submit">
+                    <input type="reset" name="subbtn1" id="btn2" value="Clear Form">
+                </div></td>
+            
+        </tr>
+        
+    </table>
+</div>
+</body>
+</html>

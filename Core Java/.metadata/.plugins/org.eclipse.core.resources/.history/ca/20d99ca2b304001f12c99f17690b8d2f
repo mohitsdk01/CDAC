@@ -1,0 +1,10 @@
+package cdac.java.q3.bank.statements;
+
+public class BankStatementReader {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

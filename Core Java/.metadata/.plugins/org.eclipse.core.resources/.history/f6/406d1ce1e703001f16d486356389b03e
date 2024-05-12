@@ -1,0 +1,6 @@
+package cdac.java.q5.users;
+
+public class Customer {
+	private String customerId;
+	private String customerPwd;
+}

@@ -1,0 +1,85 @@
+mysql> 
+mysql> create table employees (
+    ->     eid int primary key,
+    ->     name varchar(20),
+    ->     experience int,
+    ->     salary double
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> 
+mysql> insert into employees (eid, name, experience, salary)
+    -> values
+    ->     (101, 'vijay', 12, 56000),
+    ->     (103, 'rani', 0, 14000),
+    ->     (104, 'ramesh', 6, 45000),
+    ->     (105, 'anil', 5, 34600),
+    ->     (107, 'akash', 14, 67800),
+    ->     (108, 'priya', 7, 60000);
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE emp (
+    ->     eid INT PRIMARY KEY,
+    ->     name VARCHAR(20),
+    ->     salary VARCHAR(20)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> delimiter //
+mysql> create procedure copydata()
+    -> begin
+    ->     declare done int default false;
+    ->     declare e_eid int;
+    ->     declare e_name varchar(20);
+    ->     declare e_salary double;
+    ->     declare cur cursor for select eid, name, salary from employees;
+    ->     declare continue handler for not found set done = true;
+    -> 
+    ->     open cur;
+    -> 
+    ->     read_loop: loop
+    ->         fetch cur into e_eid, e_name, e_salary;
+    ->         if done then
+    ->             leave read_loop;
+    ->         end if;
+    -> 
+    ->         insert into emp (eid, name, salary)
+    ->         values (e_eid, upper(e_name), concat(floor(e_salary / 1000), 'k'));
+    ->     end loop;
+    -> 
+    ->     close cur;
+    -> end;
+    -> //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> 
+mysql> call copydata();
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from emp;
++-----+--------+--------+
+| eid | name   | salary |
++-----+--------+--------+
+| 101 | VIJAY  | 56k    |
+| 103 | RANI   | 14k    |
+| 104 | RAMESH | 45k    |
+| 105 | ANIL   | 34k    |
+| 107 | AKASH  | 67k    |
+| 108 | PRIYA  | 60k    |
++-----+--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employees;
++-----+--------+------------+--------+
+| eid | name   | experience | salary |
++-----+--------+------------+--------+
+| 101 | vijay  |         12 |  56000 |
+| 103 | rani   |          0 |  14000 |
+| 104 | ramesh |          6 |  45000 |
+| 105 | anil   |          5 |  34600 |
+| 107 | akash  |         14 |  67800 |
+| 108 | priya  |          7 |  60000 |
++-----+--------+------------+--------+
+6 rows in set (0.00 sec)

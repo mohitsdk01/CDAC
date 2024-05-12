@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=["Rajan","Ashutosh","Tushar"];
+        function displaylist(){
+            var str="<ul>";
+            /*for(var i=0;i<arr.length;i++){
+                str+=`<li>${arr[i]}</li>`
+            }*/
+            //array for loop or for each loop
+            for(var p of arr){
+                str+=`<li>${p}</li>`
+            }
+            str+="</ul>";
+            console.log(str);
+            document.getElementById("mydiv").innerHTML=str
+        }
+
+        //add name in the array at the end
+        function addname(){
+            //retrieve data text box
+            var nm=document.getElementById("nm").value;
+            //add in the array at the end
+            arr.push(nm);
+            //clear the text box
+            document.getElementById("nm").value="";
+            //display new array as unordered list
+            displaylist();
+        }
+        //search the position of the given name
+        function searchName(){
+            var v=document.getElementById("nm").value;
+            var pos=arr.indexOf(v)
+            if(pos!=-1){
+                //alert("Name found at position "+pos)
+                alert(`Name ${v} found at position ${pos}`);
+            }else{
+                alert(`${v} not found`);
+            }
+            document.getElementById("nm").value="";
+        }
+
+        function deletename(){
+            //get value from textbox
+            var v=document.getElementById("nm").value;
+            //search the position
+            var pos=arr.indexOf(v)
+            if(pos!=-1){
+                //take confirmation from user
+               var ans=confirm(`do you want to delete the name ${v}?(y/n)`)
+               if(ans){
+                //delete 1 value from pos position
+                  arr.splice(pos,1);
+                 
+                  //convert modified array into unorderd list
+                  displaylist();
+               } 
+            }
+            else{
+                alert(`${v} not found`);
+            }
+            document.getElementById("nm").value=""
+        }
+    </script>
+</head>
+<body onload="displaylist()">
+    <form>
+        Name :<input type="text" name="nm" id="nm"><br>
+        <button type="button" name="btn" id="add" onclick="addname()">Add</button>
+        <button type="button" name="btn" id="delete" onclick="deletename()">delete</button>
+        <button type="button" name="btn" id="search" onclick="searchName()">search</button>
+    </form>
+    <div id="mydiv">
+       
+    </div>
+</body>
+</html>

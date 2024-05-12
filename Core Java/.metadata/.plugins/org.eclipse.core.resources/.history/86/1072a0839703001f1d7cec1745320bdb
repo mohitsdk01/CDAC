@@ -1,0 +1,12 @@
+package cdac.java.q4.cricket;
+
+public class Cricketer {
+	private String firstName;
+	private String lastName;
+	private int age;
+	private String email;
+	private String phone;
+	private int rating;
+	
+	
+}

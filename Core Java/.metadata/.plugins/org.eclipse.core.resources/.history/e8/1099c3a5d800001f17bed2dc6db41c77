@@ -1,0 +1,88 @@
+package com.app.core.tester;
+
+import static utils.StudentCollectionUtils.populateList;
+import static utils.StudentCollectionUtils.populateMap;
+
+import java.util.Comparator;
+import java.util.Map;
+import java.util.OptionalDouble;
+import java.util.Scanner;
+
+import com.app.core.Student;
+import com.app.core.Subject;
+public class Tester1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Display  student details(map) for specified subject, 
+//		sorted as per DoB
+		Map<String, Student> studentMap = populateMap(populateList());
+		studentMap.forEach((k,v)->System.out.println(v));
+		System.out.println("Soted Student---------------------->");
+		Subject subject = Subject.DBT; // select subject
+		Comparator<Student> comp = (stud1, stud2) -> // create function to compare two dob
+		stud1.getDob().compareTo(stud2.getDob()); // Compare DOB
+		studentMap.values() // Make Map into collection; Collection<Stduent>
+		.stream() // convert map values into streams
+		.filter(values -> values.getSubject() == subject) // filter then as per subject req.
+		.sorted(comp) // pass the comparator into sorted
+		.forEach((stud) -> System.out.println(stud)); // print the sorted and filterd data
+		
+//		Print average of  marks of students from the specified state
+//		i/p : name of the state
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter The State: ");
+		String state = sc.next();
+		OptionalDouble average = studentMap.values() // Make Map into collection; Collection<Stduent>
+		.stream()
+		.filter((s) -> s.getAddress().getState().equals(state))
+		.mapToDouble((s) -> s.getGpa()).average();
+		System.out.println(average);
+		
+//		Print name of specified subject  topper
+//		i/p : subject name
+		
+//		System.out.println("Enter Subject: ");
+//		Subject sub = Subject.JAVA;
+//		Comparator<Student> comp1 = (s1, s2) -> ((Double)s1.getGpa()).compareTo(s2.getGpa());
+//		Student topper = studentMap.values()
+//		.stream()
+//		.filter((s) -> s.getSubject().equals(sub))
+////		.mapToDouble((s) -> s.getGpa())
+////		.max(comp1).orElseThrow(); // error
+////		System.out.println(topper.getName());
+//		.mapToDouble((s)->s.getGpa())
+//		.max(comp1).orElseThrow();
+//		System.out.println(topper.getName());
+
+		
+		
+//		Print no of  failures for the specified subject chosen  from user.
+//		i/p : subject name
+//		(failure is GPA < 5.0)
+		
+		Subject sub1 = Subject.ANGULAR;
+		long count = studentMap.values()
+		.stream()
+		.filter((s) -> s.getSubject()
+		.equals(sub1)&&s.getGpa()<5.0)
+		.count();
+		System.out.println(count);
+		
+		
+//		Display names of students enrolled in a specified subject , securing marks > specified marks
+//		i/p : subject name , marks
+		
+		Subject subject1 = Subject.JAVA;
+		System.out.println("Enter Marks: ");
+		double marks = sc.nextDouble();
+		
+//		studentMap.values()
+//		.stream()
+//		.filter((s) -> ((Double)s.getSubject()).compareTo(subject1))
+//		.
+		
+		sc.close();
+	}
+
+}

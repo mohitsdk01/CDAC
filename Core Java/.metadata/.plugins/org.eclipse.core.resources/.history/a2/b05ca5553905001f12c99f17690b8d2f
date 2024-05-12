@@ -1,0 +1,12 @@
+package cdac.java.q6.employee;
+
+import java.time.LocalDate;
+
+public class Employee {
+	public String name;
+	public LocalDate dateOfJoining;
+	public String phoneNumber;
+	public String AddharNumber;
+	
+	
+}

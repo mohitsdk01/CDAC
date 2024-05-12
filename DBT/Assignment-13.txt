@@ -1,0 +1,157 @@
+Assignment: 13
+
+Q1: If the data entry has made for a negative cost then make is positive and insert it.
+
+mysql> CREATE TABLE products (
+    ->     type VARCHAR(50),
+    ->     name VARCHAR(50),
+    ->     cost INT
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+
+
+mysql> delimiter //
+mysql> create trigger before_insert_positive
+    -> before insert on products for each row
+    -> begin
+    -> if(new.cost < 0) then
+    -> set new.cost = -(new.cost);
+    -> end if;
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+
+mysql> INSERT INTO products (type, name, cost) VALUES
+    -> ('FUR', 'Chair', -1500),
+    -> ('FUR', 'Cupboard', 15000),
+    -> ('ELE', 'Mobile', 25000),
+    -> ('FUR', 'Table', -6500),
+    -> ('ELE', 'Television', -18500),
+    -> ('STA', 'Notebook', 45),
+    -> ('STA', 'Stapler', 40);
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from products;
++------+------------+-------+
+| type | name       | cost  |
++------+------------+-------+
+| FUR  | Chair      |  1500 |
+| FUR  | Cupboard   | 15000 |
+| ELE  | Mobile     | 25000 |
+| FUR  | Table      |  6500 |
+| ELE  | Television | 18500 |
+| STA  | Notebook   |    45 |
+| STA  | Stapler    |    40 |
++------+------------+-------+
+7 rows in set (0.00 sec)
+
+
+
+Q2: Make a backup of the data every time user enters new information in the table.
+
+mysql> delimiter //
+mysql> create trigger after_insert_products
+    -> after insert on products for each row
+    -> begin
+    -> insert into backup_products values(new.type, new.name, new.cost);
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> INSERT INTO products (type, name, cost) VALUES
+    -> ('FUR', 'Chair', -1500),
+    -> ('FUR', 'Cupboard', 15000),
+    -> ('ELE', 'Mobile', 25000),
+    -> ('FUR', 'Table', -6500),
+    -> ('ELE', 'Television', -18500),
+    -> ('STA', 'Notebook', 45),
+    -> ('STA', 'Stapler', 40);
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from products;
++------+------------+-------+
+| type | name       | cost  |
++------+------------+-------+
+| FUR  | Chair      |  1500 |
+| FUR  | Cupboard   | 15000 |
+| ELE  | Mobile     | 25000 |
+| FUR  | Table      |  6500 |
+| ELE  | Television | 18500 |
+| STA  | Notebook   |    45 |
+| STA  | Stapler    |    40 |
++------+------------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from backup_products;
++------+------------+-------+
+| type | name       | cost  |
++------+------------+-------+
+| FUR  | Chair      |  1500 |
+| FUR  | Cupboard   | 15000 |
+| ELE  | Mobile     | 25000 |
+| FUR  | Table      |  6500 |
+| ELE  | Television | 18500 |
+| STA  | Notebook   |    45 |
+| STA  | Stapler    |    40 |
++------+------------+-------+
+7 rows in set (0.00 sec)
+
+
+Q3: Create a log file when user makes the changes in the cost of the product, record it.
+
+mysql> create table log (date datetime);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> delimiter //
+mysql> create trigger after_insert_products_log
+    -> after update on products for each row
+    -> begin
+    -> insert into log values(now());
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+mysql> delimiter ;
+
+
+mysql> update products set cost = 30000 where type = 'ELE';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from log;
++---------------------+
+| date      	      |
++---------------------+
+| 2024-05-01 00:10:52 |
++---------------------+
+1 row in set (0.00 sec)
+
+
+Q4: After deleting any entry from table, create a variable that contains the type of product which has recently deleted.
+
+mysql> create trigger after_delete_products
+    -> after delete on products for each row
+    -> begin
+    -> set @var = concat('You deleted Entry of Products: ', old.type);
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+mysql> delimiter ;
+
+mysql> delete from products where type = 'ELE';
+Query OK, 3 rows affected (0.01 sec)
+
+
+mysql> select * from products;
++------+----------+-------+
+| type | name     | cost  |
++------+----------+-------+
+| FUR  | Chair    |  1500 |
+| FUR  | Cupboard | 15000 |
+| FUR  | Table    |  6500 |
+| STA  | Notebook |    45 |
+| STA  | Stapler  |    40 |
++------+----------+-------+
+5 rows in set (0.00 sec)
+
+

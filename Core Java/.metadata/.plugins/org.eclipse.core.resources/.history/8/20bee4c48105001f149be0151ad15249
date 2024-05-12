@@ -1,0 +1,10 @@
+package cdac.dbda.q.teser;
+
+public class GroceryTester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

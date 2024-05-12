@@ -1,0 +1,11 @@
+If we do not import the dependencies.jar file then the code will throw 
+ClassNotFoundException while runtime. 
+
+Because when we de-serialize any object there must be class present by which the object
+is created. 
+
+Then we can create the jar file from day17_ser package and import here using 
+Build Path option in right click menu.
+
+We can create jar using export present into right click menu where we select the 
+Java and then jar file for creating the jar file on specified path in system.

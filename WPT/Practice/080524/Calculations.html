@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addition(){
+            //retrieve the value from the text box
+            //and convert it into number
+           var num1=parseInt(document.getElementById("n1").value);
+           //retrieve the value from th text box
+            //and convert it into number
+
+           var num2=parseInt(document.getElementById("n2").value);
+           var result=num1+num2;
+           //display the result in the text box
+           document.getElementById("result").value=result
+           //display the result in the div
+           document.getElementById("mydiv").innerHTML="Addition : "+result;
+        }
+        function calcfactorial(){
+            //alert("in factorial")
+            var f=1;
+            var num=parseInt(document.getElementById("n1").value);
+            for(var i=1;i<=num;i++){
+                f=f*i;
+            }
+            document.getElementById("result").value=f;
+            document.getElementById("mydiv").innerHTML="Factorial: "+f
+        }
+        const printtable1=function(){
+            var num=parseInt(document.getElementById("n1").value);
+            for(var i=1;i<=10;i++){
+                document.getElementById("mydiv").innerHTML+=`${num} * ${i} = ${num*i}<br>`
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <form>
+        Number1 : <input type="text" name="num1" id="n1" placeholder="enter number1" /><br/>
+        Number2 : <input type="text" name="num2" id="n2" placeholder="enter number2"/><br/>
+        Result : <input type="text" name="result" id="result" readonly placeholder="enter number2"/><br/>
+        <button type="button" name="add" id="add" value="add" onclick="addition()">Add numbers</button>
+        <button type="button" name="factorial" id="factorial" value="factorial" onclick="calcfactorial()">factorial</button>
+        <button type="button" name="printtable" id="printtable" value="printtable" onclick="printtable1()">printtable</button>
+        <div id="mydiv">
+            Result will appear here
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //redeclaration in var is allowed
+        //redeclaration in let is not allowed
+        var a=23;
+        var a="Kishori";
+        let b=23;
+        //let b=45; //error
+        for(var i=0;i<10;i++){
+            b++;
+        }
+        console.log("value of i",i);
+        for(let j=0;j<10;j++){
+            b++;
+        }
+        //console.log("value of j",j);   //error
+         function f1(){
+            var a=50;
+            let s=45;
+            if(a>10){
+                let x=45;
+                var d=34;
+
+            }
+            console.log("d: ",d);
+           // console.log("x: ",x); //error
+         }
+         
+         f1();
+         console.log("a: ",a);
+         //hoisting of variable declartion is allowed
+               
+         console.log("the value of g :",g);
+         var g=34;
+         
+          //hoisting of variable declartion is not allowed
+        // console.log("the value of gh:",gh);  //error
+         let gh=34;
+          const c=45;
+          c=56;
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+header > img{
+    float: left;
+    height: 70px;
+}
+.heading{
+    margin: 0px;
+    font-size: 60px;
+    color: rgb(1, 201, 157);
+    font-weight: 150;
+}
+
+nav > a{
+    display: inline;
+    padding: 1em 10px;
+    color: #111;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+nav{
+    background-color: rgb(26, 183, 130);
+    height: 30px;
+    text-align: left;
+    padding-top: 15px;
+}
+
+#content{
+    float: right;
+}
+
+/* table{
+    border: 1px solid black;
+    width: 100%;
+} */
+
+.headth{
+    background-color: rgb(39, 224, 178);
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+.mytable table, .mytable table td, .mytable table th{
+    border-collapse: collapse;
+    /* width: 100%; */
+    border:  1px solid black;
+}
+.mytable table {
+    width: 100%;
+}
+footer{
+    text-align: center;
+    color: white;
+    background-color: rgb(39, 224, 178) ;
+    margin-top: 20px;
+    width: 100%;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         function showresult(){
+            var str=document.getElementById("str").value;
+            var select=document.getElementById("operation");
+            var op=select.options[select.selectedIndex].value;
+            switch(op){
+                case "upper":
+                    var result=str.toUpperCase();
+                    break;
+                case "lower":
+                    var result=str.toLowerCase();
+                    break;
+                case "slice":
+                    start=parseInt(prompt("enetr startindex"));
+                    end=parseInt(prompt("enetr endindex"));
+                    result=str.slice(start,end);
+                case "match":
+                    //to find the string which matches the pattern
+                    var result=str.match(/r.*?n/ig);
+                    break;
+                case "search":
+                    //to find the position where the pattern matches
+                    var result=str.search(/p.*?n/ig);
+                    break
+                case "replace":
+                var result=str.replace(/p.*?n/i,"xxxxxxxx");
+                    break
+                case "concat":
+                    
+                    break
+            }
+            document.getElementById("result").value=result;
+         }
+    </script>
+</head>
+<body>
+    <form>
+        String : <input type="text" name="s" id="str"><br>
+        result: <input type="text" name="result" id="result"><br>
+        Function: <select id="operation">
+               <option value="upper">upper</option>
+               <option value="lower">lower</option>
+               <option value="match">match</option>
+               <option value="slice">slice</option>
+               <option value="replace">replace</option>
+               <option value="search">search</option>
+               <option value="concat">concat</option>
+        </select>
+        <button type="button" name="btn" id="btn" onclick="showresult()">Show Result</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+package cdac.java.q4.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q4.cricket.Cricketer;
+
+public class CricketerUtils {
+	
+	public static Map<Integer, Cricketer> populateMap(){
+		Map<Integer, Cricketer> cricMap = new HashMap<>();
+		cricMap.put(100, new Cricketer("Chore Chuckles", "Desc1", 
+				parse("2024-04-27"), INPROGRESS, true));
+		cricMap.put(101, new Cricketer("The Giggle Grid", "Desc2", 
+				parse("2024-04-29"), PENDING, true));
+		cricMap.put(102, new Cricketer("Tickled Tasks", "Desc3", 
+				parse("2024-04-21"), COMPLETED, false));
+		cricMap.put(104, new Cricketer("Wisecracking Workload", "Desc4", 
+				parse("2024-04-25"), PENDING, true));
+		cricMap.put(105, new Cricketer("Jocular Jobs", "Desc5", 
+				parse("2024-04-22"), COMPLETED, false));
+		cricMap.put(106, new Cricketer("Mirthful Must-Dos", "Desc6", 
+				parse("2024-04-28"), INPROGRESS, true));
+		return cricMap;
+	}
+}

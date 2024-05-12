@@ -1,0 +1,10 @@
+package cdac.java.q6.tester;
+
+public class EmpTester {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to Employee Management System");
+
+	}
+
+}

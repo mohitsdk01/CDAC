@@ -1,0 +1,16 @@
+package cdac.java.q4.tester;
+
+import java.util.Scanner;
+
+public class CricketTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			
+		}
+
+	}
+
+}

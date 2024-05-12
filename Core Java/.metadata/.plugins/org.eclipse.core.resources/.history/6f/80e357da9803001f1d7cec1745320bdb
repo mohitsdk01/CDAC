@@ -1,0 +1,21 @@
+package cdac.java.q4.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q4.cricket.Cricketer;
+
+public class CricketerUtils {
+	
+	public static Map<Integer, Cricketer> populateMap(){
+		Map<Integer, Cricketer> cricMap = new HashMap<>();
+		cricMap.put();
+		cricMap.put();
+		cricMap.put();
+		cricMap.put();
+		cricMap.put();
+		return cricMap;
+	}
+}

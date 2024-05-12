@@ -1,0 +1,34 @@
+package cdac.java.q3.bank.statements;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BankStatementReader {
+
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		double totalDeposit = 0.0;
+        double maxDeposit = 0.0;
+        String maxDepositDate = null;
+        double totalShopping = 0.0;
+        String maxWithdrawalDate = null;
+        double maxWithdrawal = 0.0;
+		try(BufferedReader in = new BufferedReader(new FileReader("Jan2023.txt"))){
+			in.readLine(); //Skipping the header first Line.			
+				String statements;
+		        
+				while((statements = in.readLine()) != null) {
+					String[] tokens = statements.split(",");
+					double withdrawalAmount = Double.parseDouble(tokens[2]);
+					double depositeAmount = Double.parseDouble(tokens[3]);
+					
+					
+					
+					
+				}
+		}
+
+	}
+
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateAddress(id,errid){
+            var addr=document.getElementById(id).value;
+            if(addr.trim().length>0){
+                document.getElementById(errid).innerHTML="";
+                return true;
+            }else{
+                document.getElementById(errid).innerHTML="adress cannot be only spaces, pls enter valid data"
+                return false; 
+            }
+        }
+        function validateRadioButton(id,errid){
+            var garr=document.getElementsByName(id);
+            for(var i=0;i<garr.length;i++){
+                if(garr[i].checked){
+                    document.getElementById(errid).innerHTML="";
+                    return true;
+                }
+            }
+            document.getElementById(errid).innerHTML="Pls select " +id
+            return false;
+
+
+        }
+        function validateCheckbox(id, errid){
+            var sarr=document.getElementsByName(id);
+            var cnt=0;
+            for(var i=0;i<sarr.length;i++){
+                if(sarr[i].checked){
+                    cnt++;
+                    if(cnt>=2){
+                        document.getElementById(errid).innerHTML="";
+                        return true;
+                    }
+                }
+            }
+            
+            document.getElementById(errid).innerHTML="select minimum 2 skills";
+            return false;
+
+        }
+        function validatedropdown(id, errid){
+            var c=document.getElementById(id);
+            alert(c.selectedIndex); // options index will be return()-index based)
+            var v=c.options[c.selectedIndex].value;
+            //if(v!=="test"){
+            if(c.selectedIndex!=0){
+                document.getElementById(errid).innerHTML="";
+                return true;
+            }
+            document.getElementById(errid).innerHTML="pls select the city";
+                return false;
+
+
+        }
+
+        function validateData(){
+            var flag1=validateAddress("addr","erraddr");
+            var flag2=validateRadioButton("gender","errgender")
+            var flag3=validateRadioButton("degree","errdegree")
+            var flag4=validateCheckbox("skill","errskill")
+            var flag5=validatedropdown("city","errcity")
+            return flag1 && flag2 && flag3 &&flag4 && flag5;
+        }
+    </script>
+</head>
+<body>
+<table>
+    <caption>This is registration form</caption>
+    <form method="post" onsubmit="return validateData()">
+    <tr>
+        <td><label for="nm">Name</label></td>
+        <td><input type="text" name="nm" id="nm1" required minlegth="3"/></td>
+    </tr>
+    <tr>
+        <td><label for="mob">Mobile</label></td>
+        <td><input type="text" name="mob" id="mob" pattern="^[0-9]{10}$"/></td>
+    </tr>
+    <tr>
+        <td><label for="addr">Address</label></td>
+        <td><textarea name="addr" rows="5" cols="20" id="addr"></textarea></td>
+        <td id="erraddr"></td> 
+    </tr>
+    <tr>
+        <td><label for="date">Date of joining</label></td>
+        <td><input type="date" name="date" id="date" min="2024-05-06" max="2024-06-02"></input></td>
+    </tr>
+    <tr>
+        <td><label for="gender">Gender</label></td>
+        <td>
+            <input type="radio" name="gender" id="male" value="male">
+            <label>Male</label>
+            <input type="radio" name="gender" id="Female" value="Female">
+            <label>Female</label>
+        </td><td id="errgender"></td>
+    </tr>
+    <tr>
+        <td><label for="addr">Degree</label></td>
+        <td>
+            <input type="radio" name="degree" id="BTECH" value="BTECH" >
+            <label for="BTECH">BTech</label>
+            <input type="radio" name="degree" id="BE" value="BE">
+            <label for="BE">BE</label>
+            <input type="radio" name="degree" id="phd" value="phd">
+            <label for="phd">Phd</label>
+        </td><td id="errdegree"></td>
+    </tr>
+    <tr>
+        <td><label>Skills</label></td>
+        <td>
+            <fieldset>
+                <legend>Select skills</legend>
+            <input type="checkbox" name="skill" id="java" value="java"/>
+            <label for="java">JAVA</label>
+            <input type="checkbox" name="skill" id="C++" value="C++"/>
+            <label for="C++">C++</label>
+            <input type="checkbox" name="skill" id="python" value="python"/>
+            <label for="python">python</label><br>
+            <input type="checkbox" name="skill" id="Perl" value="Perl"/>
+            <label for="Perl">Perl</label>
+            <input type="checkbox" name="skill" id="Devops" value="Devops"/>
+            <label for="Devops">Devops</label>
+        </fieldset>
+        </td><td id="errskill"></td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>
+            <select id="city" name="city">
+                <option value="test">----select one---</option>
+                <option value="pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Banglore" >Banglore</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+        </td><td id="errcity"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button type="submit" name="btn" id="btn" value="register">Register</button>
+            <button type="reset" name="btn1" id="btn1" value="reset">Reset</button>
+        </td>
+    </tr>
+
+    </form>
+</table>
+</body>
+</html>

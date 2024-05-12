@@ -1,0 +1,10 @@
+package cdac.java.q5.core;
+
+public class Order {
+	private int orderId;
+	private int petId;
+	private int quantity;
+	private Status status;
+	
+	
+}

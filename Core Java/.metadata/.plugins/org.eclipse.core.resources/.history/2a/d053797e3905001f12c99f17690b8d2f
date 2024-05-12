@@ -1,0 +1,12 @@
+package cdac.java.q6.employee;
+
+import java.time.LocalDate;
+
+public class Employee {
+	protected String name;
+	protected LocalDate dateOfJoining;
+	protected String phoneNumber;
+	protected String AddharNumber;
+	protected double salary;
+	
+}

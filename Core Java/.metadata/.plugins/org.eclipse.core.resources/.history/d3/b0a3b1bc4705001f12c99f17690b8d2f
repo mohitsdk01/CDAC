@@ -1,0 +1,19 @@
+package cdac.java.q6.employee;
+
+import java.time.LocalDate;
+
+public class FullTimeEmployee extends Employee {
+	
+	public FullTimeEmployee(int empId, String name, LocalDate dateOfJoining, String phoneNumber, String addharNumber) {
+		super(empId, name, dateOfJoining, phoneNumber, addharNumber);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "FullTimeEmployee [empId=" + empId + ", name=" + name + ", dateOfJoining=" + dateOfJoining
+				+ ", phoneNumber=" + phoneNumber + ", AddharNumber=" + AddharNumber + ", salary=" + salary + "]";
+	}
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;cdac.java.q5.utils.DummyDatautils&apos; to &apos;DummyDataUtils&apos;&#x0D;&#x0A;- Original project: &apos;5.PetShop&apos;&#x0D;&#x0A;- Original element: &apos;cdac.java.q5.utils.DummyDatautils&apos;&#x0D;&#x0A;- Renamed element: &apos;cdac.java.q5.utils.DummyDataUtils&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DummyDatautils&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;cdac.java.q5.utils{DummyDatautils.java[DummyDatautils" matchStrategy="1" name="DummyDataUtils" qualified="false" references="true" similarDeclarations="false" stamp="1714148082691" textual="false" version="1.0"/>
+</session>

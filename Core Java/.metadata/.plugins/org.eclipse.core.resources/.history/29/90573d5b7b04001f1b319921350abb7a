@@ -1,0 +1,154 @@
+package cdac.java.q5.utils;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q5.core.Category;
+import cdac.java.q5.core.Order;
+import cdac.java.q5.core.Pet;
+import cdac.java.q5.core.Status;
+import cdac.java.q5.exceptions.OutOfStockException;
+import static cdac.java.q5.utils.ValidateUtility.orderInputValidate;
+
+public class ShopUtils {
+	
+	// Admin Functionalities...
+	public static void adminAccessFunctionality(Map<Integer, Pet> petMap, 
+			Map<Integer, Order> orderMap, Scanner sc) {
+		System.out.println("Now You Can Access Admin Authorized Functionalities");
+		boolean exit = false;
+		int choice;
+		do {
+			System.out.println("Menu: \n");
+			System.out.println("1. Add New Pet\n"
+					+ "2. Update Pet Details\n"
+					+ "3. Update Order Status\n"
+					+ "4. Display All Pets\n"
+					+ "5. Display All Orders\n");
+			System.out.println("Enter Choice: ");
+			choice = sc.nextInt();
+			switch(choice) {
+			case 1:
+				System.out.println("Enter Pet Details: "
+						+ "[Pet ID, Name, Category, Unit Price of Pet, Stocks]");
+				Pet pet = new Pet(sc.nextInt(), sc.next(), Category.valueOf(sc.next()), 
+						sc.nextDouble(), sc.nextInt());
+				petMap.put(pet.getPetId(), pet);
+				System.out.println("New " + pet.getName() + " Added");
+				break;
+				
+			case 2:
+				System.out.println("Enter Pet ID: ");
+				int petId = sc.nextInt();
+				boolean isValidate = false;
+				for(Pet p : petMap.values()) {
+					if(p.getPetId() == petId)
+						isValidate = true;
+				}
+				if(isValidate) {
+					System.out.println("If You want to update Price Press 1 and for "
+							+ "Stocks press 2");
+					int ch = sc.nextInt();
+					if(ch == 1) {
+						System.out.println("Enter New Price To set: ");
+						double price = sc.nextDouble();
+						Pet petSet = petMap.get(petId);
+						petSet.setUnitPrice(price);
+						System.out.println("Price Updated.");
+					}
+					else if(ch == 2) {
+						System.out.println("Enter New Stocks To set: ");
+						int newStock = sc.nextInt();
+						Pet petSet = petMap.get(petId);
+						petSet.setStocks(newStock);
+						System.out.println("Stocks Updated.");
+					}
+					else System.out.println("Invalid Choice!!!");
+				}
+				break;
+				
+			case 3:
+				System.out.println("Enter Order ID: ");
+				int orderId = sc.nextInt();
+				boolean isValid = false;
+				for(Order o : orderMap.values()) {
+					if(o.getOrderId() == orderId) {
+						isValid = true;
+					}
+				}
+				if(isValid) {
+					System.out.println("Enter Order Status: ");
+					String orderStatus = sc.next();
+					Order orderDump = orderMap.get(orderId);
+					orderDump.setStatus(Status.valueOf(orderStatus.toUpperCase()));
+					System.out.println("Order Updated Successfully.");
+				}
+				break;
+				
+			case 4:
+				for(Pet p : petMap.values())
+					System.out.println(p);
+				break;
+				
+			case 5:
+				for(Order order : orderMap.values())
+					System.out.println(order);
+				break;
+				
+			case 0:
+				exit = true;
+				break;
+			}
+		}while(!exit);
+	}
+	
+	// Customer Functionalities...
+	public static void customerAccessFunctionality(Map<Integer, Pet> petMap, 
+			Map<Integer, Order> orderMap, Scanner sc) throws OutOfStockException {
+		System.out.println("Welcome TO Shop");
+		boolean exit = false;
+		int choice;
+		do {
+			System.out.println("Menu: \n");
+			System.out.println("1. Display All Pets\n"
+					+ "2. Order a Pet\n"
+					+ "3. Check Order Status\n");
+			System.out.println("Enter Choice: ");
+			choice = sc.nextInt();
+			switch(choice) {
+			case 1:
+				for(Pet pet : petMap.values())
+					System.out.println(pet);
+				break;
+				
+			case 2:
+				// Validation Pending
+				System.out.println("Enter Pet Details: [Pet ID, Quantity]");
+				Order order = orderInputValidate(orderMap ,sc.nextInt(), sc.nextInt());
+//				Order order = new Order(sc.nextInt(), sc.nextInt());
+				orderMap.put(order.getOrderId(), order);
+				int petId = order.getPetId();
+				Pet pet = petMap.get(petId);
+				pet.setStocks(pet.getStocks() - order.getQuantity());
+				System.out.println("Order Placed Successfully." 
+				+ " Your Order ID is: " + order.getOrderId());
+				break;
+				
+			case 3:
+				System.out.println("Enter Order Id: ");
+				int orderId = sc.nextInt();
+				for(Order o : orderMap.values()) {
+					if(o.getOrderId() == orderId) {
+						System.out.println("Your Order Status is: ");
+						System.out.println(o.getStatus());
+					}
+				}
+				break;
+				
+			case 0:
+				exit = true;
+				break;
+			}
+		}while(!exit);
+	}
+}

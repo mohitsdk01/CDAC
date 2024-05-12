@@ -1,0 +1,16 @@
+package cdac.java.q5.utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q5.users.Admin;
+
+
+public class DummyDataUtils {
+	
+	public static Map<String, Admin> populateMap(){
+		Map<String, Admin> map = new HashMap<>();
+		
+		map.put("admin1", new Admin("admin1", "admin1"))
+	}
+}

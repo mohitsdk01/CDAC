@@ -1,0 +1,66 @@
+package cdac.java.q4.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q4.cricket.Cricketer;
+import static cdac.java.q4.utils.CricketerUtils.populateMap;
+
+public class CricketTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Cricketer> cricketerMap = populateMap();
+			boolean exit = false;
+			int choice;
+			
+			do {
+				System.out.println("Menu: \n");
+				System.out.println("1. Accept minimum 5 Cricketers in the collection\n"
+						+ "2. Modify Cricketer's rating\n"
+						+ "3. Search Cricketer by name\n"
+						+ "4. Display all Cricketers added in collection\n"
+						+ "5. Display All Cricketers in sorted form by rating\n"
+						+ "0. Exit\n");
+				System.out.println("Enter Choice: ");
+				choice = sc.nextInt();
+				
+				try {
+					switch(choice) {
+					case 1:
+						System.out.println("Enter Players Details: [First Name, Last Name, "
+								+ "Age" + " Phone and Rating");
+						Cricketer player = new Cricketer(sc.next(), sc.next(), 
+								sc.nextInt(), sc.next(), sc.next(), sc.nextInt());
+						cricketerMap.put(player.getEmail(), player);
+						System.out.println("Player Added Successfully...");
+						break;
+						
+					case 2:
+						break;
+						
+					case 3:
+						break;
+						
+					case 4:
+						break;
+						
+					case 5:
+						break;
+					
+					case 0:
+						exit = true;
+						break;
+					}
+				}catch (Exception e) {
+					sc.nextLine();
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+
+	}
+
+}

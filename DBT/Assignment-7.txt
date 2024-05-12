@@ -1,0 +1,508 @@
+create table employee (empid int primary key, empName varchar(20), department varchar(8), contactNo varchar(12), emailId varchar(20), empHeadId tinyint);
+
+mysql> desc Employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| empid      | int         | NO   | PRI | NULL    |       |
+| empName    | varchar(20) | YES  |     | NULL    |       |
+| department | varchar(8)  | YES  |     | NULL    |       |
+| contactNo  | varchar(12) | YES  |     | NULL    |       |
+| emailId    | varchar(20) | YES  |     | NULL    |       |
+| empHeadId  | tinyint     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> insert into Employee values(101, "Isha", "E-101", "1234567890", "isha@gmail.com", 105);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee values(102, "Priya", "E-104", "1234567890", "priya@yahoo", 103);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee values(103, "Neha", "E-101", "1234567890", "neha@gmail.com", 101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee values(104, "Rahul", "E-102", "1234567890", "rahul@yahoo", 105);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee values(105, "Abhishek", "E-101", "1234567890", "abhishek@gmail.com", 102);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Employee;
++-------+----------+------------+------------+--------------------+-----------+
+| empid | empName  | department | contactNo  | emailId            | empHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create table EmpDept (deptid varchar(8) primary key, deptName varchar(20), dept_off varchar(15), deptHead tinyint);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc EmpDept;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptid   | varchar(8)  | NO   | PRI | NULL    |       |
+| deptName | varchar(20) | YES  |     | NULL    |       |
+| dept_off | varchar(15) | YES  |     | NULL    |       |
+| deptHead | tinyint     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into EmpDept values("E-101", "HR", "Monday", 105);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmpDept values("E-102", "Development", "Tuesday", 101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmpDept values("E-103", "House Keeping", "Saturday", 103);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmpDept values("E-104", "Sales", "Sunday", 104);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmpDept values("E-105", "Purchase", "Tuesday", 104);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from EmpDept;
++--------+---------------+----------+----------+
+| deptid | deptName      | dept_off | deptHead |
++--------+---------------+----------+----------+
+| E-101  | HR            | Monday   |      105 |
+| E-102  | Development   | Tuesday  |      101 |
+| E-103  | House Keeping | Saturday |      103 |
+| E-104  | Sales         | Sunday   |      104 |
+| E-105  | Purchase      | Tuesday  |      104 |
++--------+---------------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> create table EmpSalary (empid int, salary int, isPermanent varchar(3));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc EmpSalary;
++-------------+------------+------+-----+---------+-------+
+| Field       | Type       | Null | Key | Default | Extra |
++-------------+------------+------+-----+---------+-------+
+| empid       | int        | YES  |     | NULL    |       |
+| salary      | int        | YES  |     | NULL    |       |
+| isPermanent | varchar(3) | YES  |     | NULL    |       |
++-------------+------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into EmpSalary values(101, 2000, "Yes");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmpSalary values(102, 10000, "Yes");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmpSalary values(103, 5000, "No");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmpSalary values(104, 1900, "Yes");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmpSalary values(105, 2300, "Yes");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from EmpSalary;
++-------+--------+-------------+
+| empid | salary | isPermanent |
++-------+--------+-------------+
+|   101 |   2000 | Yes         |
+|   102 |  10000 | Yes         |
+|   103 |   5000 | No          |
+|   104 |   1900 | Yes         |
+|   105 |   2300 | Yes         |
++-------+--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> create table Project (projectid varchar(3), duration tinyint);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc Project;
++-----------+------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+------------+------+-----+---------+-------+
+| projectid | varchar(3) | YES  |     | NULL    |       |
+| duration  | tinyint    | YES  |     | NULL    |       |
++-----------+------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into Project values("p-1", 23);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Project values("p-2", 15);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Project values("p-3", 45);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Project values("p-4", 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Project values("p-5", 30);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Project;
++-----------+----------+
+| projectid | duration |
++-----------+----------+
+| p-1       |       23 |
+| p-2       |       15 |
+| p-3       |       45 |
+| p-4       |        2 |
+| p-5       |       30 |
++-----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> create table Country (cid varchar(3), cname varchar(10));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc Country;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| cid   | varchar(3)  | YES  |     | NULL    |       |
+| cname | varchar(10) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into Country values("c-1", "India");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Country values("c-2", "USA");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Country values("c-3", "China");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Country values("c-4", "Pakistan");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Country values("c-5", "Russia");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Country;
++------+----------+
+| cid  | cname    |
++------+----------+
+| c-1  | India    |
+| c-2  | USA      |
+| c-3  | China    |
+| c-4  | Pakistan |
+| c-5  | Russia   |
++------+----------+
+5 rows in set (0.00 sec)
+
+mysql> create table ClientTable (clientid varchar(4), clientname varchar(15), cid varchar(3));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into ClientTable values("cl-1", "ABC Group", "c-1");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into ClientTable values("cl-2", "PQR", "c-1");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into ClientTable values("cl-3", "XYZ", "c-2");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into ClientTable values("cl-4", "tech altum", "c-3");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into ClientTable values("cl-5", "mnp", "c-5");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc ClientTable;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| clientid   | varchar(4)  | YES  |     | NULL    |       |
+| clientname | varchar(15) | YES  |     | NULL    |       |
+| cid        | varchar(3)  | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from ClientTable;
++----------+------------+------+
+| clientid | clientname | cid  |
++----------+------------+------+
+| cl-1     | ABC Group  | c-1  |
+| cl-2     | PQR        | c-1  |
+| cl-3     | XYZ        | c-2  |
+| cl-4     | tech altum | c-3  |
+| cl-5     | mnp        | c-5  |
++----------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> create table EmpProject (empid tinyint, projectid varchar(3), clientid varchar(4), startyear int, endyear int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc EmpProject;
++-----------+------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+------------+------+-----+---------+-------+
+| empid     | tinyint    | YES  |     | NULL    |       |
+| projectid | varchar(3) | YES  |     | NULL    |       |
+| clientid  | varchar(4) | YES  |     | NULL    |       |
+| startyear | int        | YES  |     | NULL    |       |
+| endyear   | int        | YES  |     | NULL    |       |
++-----------+------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into EmpProject values(101, "p-1", "cl-1", 2010, 2010);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into EmpProject values(102, "p-2", "cl-2", 2010, 2012);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmpProject (empid, projectid, clientid, startyear) values(103, "p-1", "cl-3", 2013);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmpProject values(104, "p-4", "cl-1", 2014, 2015);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmpProject (empid, projectid, clientid, startyear) values(105, "p-4", "cl-5", 2015);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from EmpProject;
++-------+-----------+----------+-----------+---------+
+| empid | projectid | clientid | startyear | endyear |
++-------+-----------+----------+-----------+---------+
+|   101 | p-1       | cl-1     |      2010 |    2010 |
+|   102 | p-2       | cl-2     |      2010 |    2012 |
+|   103 | p-1       | cl-3     |      2013 |    NULL |
+|   104 | p-4       | cl-1     |      2014 |    2015 |
+|   105 | p-4       | cl-5     |      2015 |    NULL |
++-------+-----------+----------+-----------+---------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+## Q.1: 
+
+mysql> select * from Employee where empname like "P%";
++-------+---------+------------+------------+-----------------+-----------+
+| empid | empName | department | contactNo  | emailId         | empHeadId |
++-------+---------+------------+------------+-----------------+-----------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |
++-------+---------+------------+------------+-----------------+-----------+
+1 row in set (0.00 sec)
+
+
+mysql> select count(*) from EmpSalary where salary > 5000 and isPermanent = "Yes";
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> select * from Employee where emailid like "%@gmail.com";
++-------+----------+------------+------------+--------------------+-----------+
+| empid | empName  | department | contactNo  | emailId            | empHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Employee where department = "E-104" or department = "E-102";
++-------+---------+------------+------------+-----------------+-----------+
+| empid | empName | department | contactNo  | emailId         | empHeadId |
++-------+---------+------------+------------+-----------------+-----------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |
+|   104 | Rahul   | E-102      | 1234567890 | rahul@yahoo.com |       105 |
++-------+---------+------------+------------+-----------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select deptname from EmpDept where deptid = "E-102";
++-------------+
+| deptname    |
++-------------+
+| Development |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from EmpSalary where isPermanent = "Yes";
++-------------+
+| sum(salary) |
++-------------+
+|       16200 |
++-------------+
+1 row in set (0.00 sec)
+
+
+mysql> select empname from Employee where empname like "%a";
++---------+
+| empname |
++---------+
+| Isha    |
+| Priya   |
+| Neha    |
++---------+
+3 rows in set (0.00 sec)
+
+
+## Q.9: 
+mysql> select count(projectid) from EmpProject where startyear = 2010;
++------------------+
+| count(projectid) |
++------------------+
+|                2 |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> select count(projectid) from EmpProject where startyear = endyear;
++------------------+
+| count(projectid) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.01 sec)
+
+
+mysql> select empname from Employee where empname like "__h%";
++----------+
+| empname  |
++----------+
+| Isha     |
+| Neha     |
+| Rahul    |
+| Abhishek |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> select deptname from EmpDept where deptid in (select department from Employee where empid>103);
++-------------+
+| deptname    |
++-------------+
+| Development |
+| HR          |
++-------------+
+2 rows in set (0.00 sec)
+
+mysql> select empname from Employee where empheadid = (select empid from
+ Employee); 
++---------+
+| empname |
++---------+
+| Isha    |
+| Rahul   |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select empname from Employee where empid = (select depthead from
+EmpDept where deptname = "HR");
++----------+
+| empname  |
++----------+
+| Abhishek |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select empname from Employee where empid in (select empheadid from Employee) and empid in (select empid from EmpSalary where isPermanent="Yes");
++----------+
+| empname  |
++----------+
+| Isha     |
+| Priya    |
+| Abhishek |
++----------+
+3 rows in set (0.01 sec)
+
+mysql> select empname, emailid from Employee where empid in (select emph
+eadid from Employee) and empid in (select empid from EmpSalary where isPermanent="No");
++---------+----------------+
+| empname | emailid        |
++---------+----------------+
+| Neha    | neha@gmail.com |
++---------+----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Employee where department in (select deptid from EmpDept where dept_off = "Monday");
++-------+----------+------------+------------+--------------------+-----------+
+| empid | empName  | department | contactNo  | emailId            | empHeadId |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from ClientTable where cid = (select cid from Country where cname = "India");
++----------+------------+------+
+| clientid | clientname | cid  |
++----------+------------+------+
+| cl-1     | ABC Group  | c-1  |
+| cl-2     | PQR        | c-1  |
++----------+------------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Employee where department = (select deptid from EmpDept where deptname = "Development");
++-------+---------+------------+------------+-----------------+-----------+
+| empid | empName | department | contactNo  | emailId         | empHeadId |
++-------+---------+------------+------------+-----------------+-----------+
+|   104 | Rahul   | E-102      | 1234567890 | rahul@yahoo.com |       105 |
++-------+---------+------------+------------+-----------------+-----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

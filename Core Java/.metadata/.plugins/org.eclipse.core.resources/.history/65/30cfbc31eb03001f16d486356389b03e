@@ -1,0 +1,27 @@
+package cdac.java.q5.utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.java.q5.users.Admin;
+import cdac.java.q5.users.Customer;
+
+
+public class DummyDataUtils {
+	
+	public static Map<String, String> populateAdminmap(){
+		Map<String, String> map = new HashMap<>();
+		
+		map.put("admin1", "admin1");
+		map.put("admin2", "admin2");
+		return map;
+	}
+	
+	public static Map<String, Customer> populateCustMap(){
+		Map<String, Customer> map = new HashMap<>();
+		
+		map.put("c1", new Customer("c1", "c1"));
+		map.put("c2", new Customer("c2", "c2"));
+		return map;
+	}
+}

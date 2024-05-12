@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var ob={empid:1111,
+            name:"Kishori",
+            hobbies:['reading','biking','trekking'],
+            dept:{deptno:12,dname:'Admin'},
+            experience:[{name:'patni',year:5},
+                {name:'igate',year:4},
+		            {name:'cabgemini',year:10}],
+working:true
+};
+document.write(`dname: ${ob.dept.dname}`)
+document.write(`hobbies 1: ${ob.hobbies[1]}`)
+document.write(`year at 1 pos: ${ob.experience[1].year}`)
+
+
+    </script>
+    
+</body>
+</html>

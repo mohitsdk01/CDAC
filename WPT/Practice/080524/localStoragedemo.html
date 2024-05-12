@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*function showcount(){}
+        const showcount=function(){}*/
+        const deletedata=()=>{
+            localStorage.removeItem("d:\.NOTES\WPT\day 4\javascriptdemos\geolocationapidemo.html");
+            
+        }
+        const showcount=()=>{
+            //check whether browser supports localstorage
+            if(typeof(Storage)!=="undefined"){
+                if(localStorage.count!==undefined){
+                    localStorage.count=parseInt(localStorage.count)+1
+                }else{
+                    //localStorage.count=1;
+                    localStorage.setItem("count",1)
+                    localStorage.name="kishori";
+                }
+                document.getElementById("mydiv").innerHTML="You clicked "+localStorage.count+" Times";
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id="btn" onclick="showcount()">check count</button>
+    <button type="button" name="btn" id="delete" onclick="deletedata()">remove count</button>
+    <div id="mydiv"></div>
+</body>
+</html>

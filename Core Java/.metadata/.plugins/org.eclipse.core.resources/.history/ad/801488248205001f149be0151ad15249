@@ -1,0 +1,29 @@
+package cdac.dbda.q.teser;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.dbda.q.core.Grocery;
+
+public class GroceryTester {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to Grocery Store");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Grocery> groMap = new HashMap<>();
+			boolean exit = false;
+			int choice;
+			
+			do {
+				try {
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+			}while(!exit);
+		}
+	}
+
+}

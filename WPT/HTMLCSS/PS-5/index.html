@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #mytd{
+            border: 0px;
+        } */
+
+        #mytable{
+            border-collapse: collapse;
+            background-color: pink;
+        }
+    </style>
+
+</head>
+<body>
+    <table border="2px solid" id = "mytable">
+        <tr>
+            <td id="mytd">Name: </td>
+            <td><input type="text" style="width: 150px;"></td>
+        </tr>
+
+        <tr>
+            <td id="mytd">Employee Code: </td>
+            <td><input type="text" style="width: 45px;"></td>
+        </tr>
+
+        <tr>
+            <td id="dept">Department: </td>
+            <td><input type="radio" id = "admin" name = "radioT" >
+                <label for = "radioT"> ADMIN </label><br>
+                <input type="radio" id = "hr" name = "radioT">
+                <label for = "radioT"> HR </label><br>
+                <input type="radio" id = "tech" name = "radioT">
+                <label for = "radioT"> TECHNICAL </label><br>
+                <input type="radio" id = "acc" name = "radioT">
+                <label for = "radioT"> ACCOUNTS </label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Date of Joining: </td>
+            <td><input type="date"></td>
+        </tr>
+
+        <tr>
+            <td>Address: </td>
+            <td>
+                <textarea type="text"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Tarining Program Attended: </td>
+            <td><input type="checkbox" id = "html" name = "ch1" >
+                <label for = "html"> HTML/DHTML </label><br>
+                <input type="checkbox" id = "java" name = "ch2">
+                <label for = "java"> JAVA </label><br>
+                <input type="checkbox" id = "cli" name = "ch3">
+                <label for = "cli"> CLIENT/SERVER </label><br>
+                <input type="checkbox" id = ".net" name = "ch4">
+                <label for = ".net"> .NET </label><br>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Training Porgram Need to be Attended: </td>
+            <td><select id = "select" name  = "select" size = "2" multiple>
+                <option value = "JAVASCRIPT"> JAVASCRIPT </option>
+                <option value = "JSTRUTS"> JSTRUTS </option>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Send the infomation at: </td>
+            <td><a href="empinfo@patni.com">empinfo@patni.com</a></td>
+        </tr>
+    </table>
+</body>
+</html>

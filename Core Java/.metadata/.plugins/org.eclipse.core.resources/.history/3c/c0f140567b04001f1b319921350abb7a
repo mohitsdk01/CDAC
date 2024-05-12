@@ -1,0 +1,13 @@
+package cdac.java.q5.utils;
+
+import java.util.Map;
+
+import cdac.java.q5.core.Order;
+
+public class ValidateUtility {
+	public static Order orderInputValidate
+	(Map<Integer, Order> orderMap, int petId, int quantity){
+		validateQuantity(orderMap, petId, quantity);
+		return new Order(0, 0);
+	}
+}

@@ -1,0 +1,22 @@
+package cdac.java.q4.tester;
+
+import java.util.Map;
+import java.util.Scanner;
+
+import cdac.java.q4.cricket.Cricketer;
+import static cdac.java.q4.utils.CricketerUtils.populateMap;
+
+public class CricketTester {
+
+	public static void main(String[] args) {
+		System.out.println("WELCOME");
+		
+		try(Scanner sc = new Scanner(System.in)){
+			Map<String, Cricketer> cricketerMap = populateMap();
+			boolean exit = false;
+			int choice;
+		}
+
+	}
+
+}

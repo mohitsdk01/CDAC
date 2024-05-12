@@ -1,0 +1,18 @@
+package cdac.b1.utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cdac.b1.core.Contact;
+import static java.time.LocalDate.parse;
+
+public class Utility {
+	
+	public static Map<String, Contact> populateContactMap(){
+		Map<String, Contact> contacts = new HashMap<>();
+		contacts.put("Mohit", new Contact("8965741263", "Mohit", 
+				parse("1987-12-30"), "mohitdk2@gmail.com"));
+		return contacts;
+			
+	}
+}

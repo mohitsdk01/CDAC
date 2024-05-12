@@ -1,0 +1,150 @@
+	Database Technology
+Assignment:3
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+# Create a database named college
+
+mysql> create database college;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+# Create a table name student in college database with following structure
+roll,name,class,marks,age with respective datatypes.
+
+mysql> use college;
+Database changed
+
+mysql> create table student
+    -> (roll int, name varchar(30), class varchar(15), marks int, age int);
+Query OK, 0 rows affected (0.04 sec)
+
+# Insert at least 5 rows in the table.
+
+mysql> insert into student values(1, 'Mohit Kirange', 'BE', 86, 22), (2, 'Linay Bharambe', 'BE', 96, 22), (3, 'Pratik Kulkarni', 'BE', 68, 23), (4, 'Saurabh Rana', 'BE', 89, 24), (5, 'Abhi Patil', 'BE', 62, 21);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+
+| roll | name            | class | marks | age  |
++------+-----------------+-------+-------+------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 |
+|    2 | Linay Bharambe  | BE    |    96 |   22 |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 |
+|    4 | Saurabh Rana    | BE    |    89 |   24 |
+|    5 | Abhi Patil      | BE    |    62 |   21 |
++------+-----------------+-------+-------+------+
+5 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+# Delete the entry of roll number 4
+
+mysql> delete from student where roll = 4;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+
+| roll | name            | class | marks | age  |
++------+-----------------+-------+-------+------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 |
+|    2 | Linay Bharambe  | BE    |    96 |   22 |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 |
+|    5 | Abhi Patil      | BE    |    62 |   21 |
++------+-----------------+-------+-------+------+
+4 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+# Update the marks of roll number 3
+
+mysql> update student set marks = 78 where roll = 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+
+| roll | name            | class | marks | age  |
++------+-----------------+-------+-------+------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 |
+|    2 | Linay Bharambe  | BE    |    96 |   22 |
+|    3 | Pratik Kulkarni | BE    |    78 |   23 |
+|    5 | Abhi Patil      | BE    |    62 |   21 |
++------+-----------------+-------+-------+------+
+4 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+# Give additional grace marks of 0.5 to all students.
+
+mysql> alter table student modify column marks float;
+Query OK, 4 rows affected (0.09 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> update student set marks = marks + 0.5;
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+
+| roll | name            | class | marks | age  |
++------+-----------------+-------+-------+------+
+|    1 | Mohit Kirange   | BE    |  87.5 |   22 |
+|    2 | Linay Bharambe  | BE    |  97.5 |   22 |
+|    3 | Pratik Kulkarni | BE    |  79.5 |   23 |
+|    5 | Abhi Patil      | BE    |  63.5 |   21 |
++------+-----------------+-------+-------+------+
+4 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+# Truncate the table
+mysql> truncate table student;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+# Insert the data again using multi-insert statement.
+
+mysql> insert into student values(1, 'Mohit Kirange', 'BE', 86, 22), (2, 'Linay Bharambe', 'BE', 96, 22), (3, 'Pratik Kulkarni', 'BE', 68, 23), (4, 'Saurabh Rana', 'BE', 89, 24), (5, 'Abhi Patil', 'BE', 62, 21);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-----------------+-------+-------+------+
+| roll | name            | class | marks | age  |
++------+-----------------+-------+-------+------+
+|    1 | Mohit Kirange   | BE    |    86 |   22 |
+|    2 | Linay Bharambe  | BE    |    96 |   22 |
+|    3 | Pratik Kulkarni | BE    |    68 |   23 |
+|    4 | Saurabh Rana    | BE    |    89 |   24 |
+|    5 | Abhi Patil      | BE    |    62 |   21 |
++------+-----------------+-------+-------+------+
+5 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------

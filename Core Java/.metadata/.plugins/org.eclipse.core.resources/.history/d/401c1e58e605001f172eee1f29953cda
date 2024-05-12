@@ -1,0 +1,27 @@
+package cdac.b1.core;
+
+import java.time.LocalDate;
+
+public class Contact {
+	private String pNo;
+	private String name;
+	private LocalDate dob;
+	private String email;
+	
+	public Contact(String pNo, String name, LocalDate dob, String email) {
+		super();
+		this.pNo = pNo;
+		this.name = name;
+		this.dob = dob;
+		this.email = "";
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Contact [pNo=" + pNo + ", name=" + name + ", dob=" + dob + ", email=" + email + "]";
+	}
+	
+	
+	
+}

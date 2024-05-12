@@ -1,0 +1,31 @@
+package cdac.java.q2.utils;
+
+import static java.time.LocalDate.parse;
+
+import java.util.HashMap;
+import java.util.Map;
+import cdac.java.q2.task.Task;
+import static cdac.java.q2.task.Status.INPROGRESS;
+import static cdac.java.q2.task.Status.PENDING;
+import static cdac.java.q2.task.Status.COMPLETED;
+
+
+public class TaskUtils {
+	
+	public static Map<Integer, Task> populateMap(){
+		Map<Integer, Task> taskMap = new HashMap<>();
+		taskMap.put(100, new Task("Chore Chuckles", "Desc1", 
+				parse("2024-04-25"), INPROGRESS, true));
+		taskMap.put(101, new Task("The Giggle Grid", "Desc2", 
+				parse("2024-04-25"), PENDING, true));
+		taskMap.put(102, new Task("Tickled Tasks", "Desc3", 
+				parse("2024-04-25"), COMPLETED, false));
+		taskMap.put(104, new Task("Wisecracking Workload", "Desc4", 
+				parse("2024-04-25"), PENDING, true));
+		taskMap.put(105, new Task("Jocular Jobs", "Desc5", 
+				parse("2024-04-25"), COMPLETED, false));
+		taskMap.put(106, new Task("Mirthful Must-Dos", "Desc6", 
+				parse("2024-04-25"), INPROGRESS, true));
+		return taskMap;
+	}
+}

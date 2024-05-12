@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // check whethe username contains more than 3 haracters 
+        // and all are not spaces
+        function validatecredential(uid,errid){
+            var unm=document.getElementById(uid).value;
+            //unm and passwd cannot have only spaces
+            if(unm.trim().length>0){
+                //clear the error message if the data is valid
+                document.getElementById(errid).innerHTML="";
+                console.log("in if"+unm);
+                return true;
+            }
+            else{
+                //display error message if the data is not valid
+                document.getElementById(errid).innerHTML= "pls enter data, it cannot be only spaces";
+                alert("in else"+unm);
+                return false;
+            }
+
+        }
+        
+        function validatedata(){
+            var flag1=validatecredential("unm","errunm");
+            var flag2=validatecredential("passwd","errpasswd");
+            alert(flag1+"----"+flag2)
+            return flag1 && flag2
+        }
+    </script>
+</head>
+<body>
+    <form action="validatadata" method="post" onsubmit="return validatedata()">
+        <label for="unm">Username :</label>
+         <input type="text" name="uname" id="unm" required autofocus minlength="3" maxlength="8"></input><span id="errunm"></span><br>
+        <label for="passwd">Password :</label> 
+        <input type="password" name="pass" id="passwd" /><span id="errpasswd"></span><br>
+        <!--<input type="button" name="btn" id="btn" value="Login"></input>-->
+        <button type="submit" name="btn" id="btn" value="Login">user Login</button>
+        <button type="reset" name="btn" id="btn1" value="cancel">Cancel</button>
+    </form>
+</body>
+</html>

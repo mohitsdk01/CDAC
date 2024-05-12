@@ -1,0 +1,9 @@
+package cdac.java.q5.core;
+
+public class Pet {
+	private int petId;
+	private String name;
+	private Category category;
+	private double unitPrice;
+	private int stocks;
+}
