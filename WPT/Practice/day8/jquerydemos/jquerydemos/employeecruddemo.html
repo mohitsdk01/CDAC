@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('input[type=text]').focus(function(){
+                changebackground(event);
+            })
+            $('input[type=text]').blur(function(){
+                resetbackground(event);
+            })
+        })
+    </script>
+    <style>
+        .myclass{
+            background-color: yellow;
+        }
+        .myc{
+            background-color: white;
+        }
+    </style>
+    <script>
+        var arr=[{empid:1,ename:"Sangeeta",sal:77777},
+            {empid:2,ename:"Deepa",sal:88888},
+            {empid:3,ename:"Rohit",sal:79797}
+        ]
+        
+        function displayTable(lst=arr){
+            var str="<table border='2'><tr><th>Employee id</th><th>Employee Name</th><th>Employee Sal</th></tr>"
+                //convert every object into tr
+                for(var e of lst){
+                    str+=`<tr><td>${e.empid}</td><td>${e.ename}</td><td>${e.sal}</td></tr>`
+                }
+            str=str+"</table>"
+            document.getElementById("mydiv").innerHTML=str;
+        }
+        function  clearform(){
+            document.getElementById("id").value="";
+            document.getElementById("nm1").value="";
+            document.getElementById("sal").value="";
+            document.getElementById("id").focus();
+        }
+        function deleteEmployee(){
+
+        }
+        function deleteEmployee(){
+            //retrieve the value of the text box
+            var empid=parseInt(document.getElementById("id").value);
+            //find the position based on condition
+            var pos=arr.findIndex(ob=>ob.empid===empid);
+            //delete the object and redisplay the table
+            if(pos!=-1){
+                arr.splice(pos,1);
+                displayTable();
+               
+            }else{// display error message
+                alert("not found");
+            }
+            clearform();
+            
+        }
+        function modifyEmployee(){
+            var empid=parseInt(document.getElementById("id").value);             
+            var pos=arr.findIndex(x=>x.empid===empid)
+            if(pos!=-1){
+                var nm=prompt("enetr name");
+                var sal=parseInt(prompt("enetr sal"));
+                arr[pos].ename=nm;
+                arr[pos].sal=sal;
+                displayTable();
+            }else{
+                alert("not found")
+            }
+            clearform();
+        }
+        function addnewEmployee(){
+            var empid=parseInt(document.getElementById("id").value);
+            var ename=document.getElementById("nm1").value;
+            var sal=parseInt(document.getElementById("sal").value);
+            //var ob={empid:empid,ename:ename,sal:sal};
+            //if variable name and property name are same then use it as a shortcut way to create object
+            var ob={empid,ename,sal};
+            arr.push(ob);
+            displayTable();
+            clearform();
+        }
+        //modify the function to search in either id or name or sal, based on field selected in th dropdown box
+        //optimize the code to search data when user press enter key in search text box, instead of searching on every key stroke
+        function searchdata(event){
+            var v=document.getElementById("search").value;
+            console.log(v);
+            console.log(event.target.value)
+            if(v!==""){
+                //alert("in if");
+                var newarr=arr.filter(x=>x.ename.includes(v));
+                console.log(newarr);
+                displayTable(newarr);
+            } else{
+                displayTable();
+            }
+        }
+        function changebackground(event){
+            var v=event.target.id;
+            document.getElementById(v).style="background-color:yellow"
+        }
+        function resetbackground(event){
+
+            document.getElementById(event.target.id).style="background-color:white"
+        }
+    </script>
+</head>
+<body onload="displayTable()">
+    <form>
+        Employee id: <input type="text" name="id" id="id" ><br>
+        Employee Name: <input type="text" name="nm" id="nm1" ><br>
+        Employee Salary: <input type="text" name="sal" id="sal" ><br>
+        <button type="button" name="add" id="add" onclick="addnewEmployee()">Add employee</button>
+        <button type="button" name="Delete" id="Delete" onclick="deleteEmployee()">Delete employee</button>
+        <button type="button" name="modify" id="modify" onclick="modifyEmployee()">modify employee</button>
+    </form><br><br><br>
+
+    search : <input type="text" name="search" id="search" onkeyup="searchdata(event)">&nbsp;&nbsp;&nbsp;<select name="field" id="field">
+        <option value="empid">id</option>
+        <option value="ename">ename</option>
+        <option value="sal">sal</option>
+    </select>
+    <div id="mydiv">
+
+    </div>
+</body>
+</html>

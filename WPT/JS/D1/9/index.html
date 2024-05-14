@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest</title>
+    <script src="/JS/jquery-3.7.1.min.js"></script>
+    <script src="compundInterest.js"></script>
+</head>
+<body>
+    <form action="post">
+        <h2>Find Compound Interest</h2>
+        <table>
+            <tr>
+                <td><label for="principle">Enter Principle:</label></td>
+                <td><input type="number" name="principle" id="principle"></td>
+            </tr>
+            <tr>
+                <td><label for="rate">Enter Rate:</label></td>
+                <td><input type="number" name="rate" id="rate"></td>
+            </tr>
+            <tr>
+                <td><label for="period">Enter Period in Years:</label></td>
+                <td><input type="number" name="period" id="period"></td>
+            </tr>
+        </table>
+        <button type="submit" id="cmpbtn">Find</button><br><br>
+        &nbsp;<div id="res" style="font-weight: 300;"></div>
+    </form>
+</body>
+</html>

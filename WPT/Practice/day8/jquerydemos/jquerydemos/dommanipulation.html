@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+            var precnt=1;
+            $('#prepend').click(function(){
+                $('#mydiv').prepend("<p class='myclass'>This is prepend para"+precnt+"</p>")
+                precnt++;
+            })
+            var appendcnt=1
+            $('#append').click(function(){
+                $('#mydiv').append("<p class='myc'>This is prepend para"+appendcnt+"</p>")
+                appendcnt++;
+            })
+            $('#removepre').click(function(){
+                $('p').remove('.myclass')
+            })
+            $('#removeappend').click(function(){
+                $('p').remove('.myc')
+            })
+        })
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id="prepend">prepend</button>
+    <button type="button" name="btn" id="append">append</button>
+    <button type="button" name="btn" id="removepre">remove prepend</button>
+    <button type="button" name="btn" id="removeappend">remove append</button>
+    <div id="mydiv">
+        <p>this is para</p>
+    </div>
+    
+
+</body>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+            //assigning click event to add button
+            $('#add').click(function(){
+               var n1=parseInt($('#n1').val());
+               var n2=parseInt($('#n2').val());
+               var result=n1+n2;
+               $('#result').val(result);
+               $('#mydiv').html(result);
+            })
+
+            $('#factorial').click(function(){
+                var n1=parseInt($('#n1').val());
+                f=1;
+                for(var i=1;i<=n1;i++){
+                    f=f*i
+                }
+                $('#result').val(f);
+               $('#mydiv').html(f);
+            })
+            $('#table').click(function(){
+                var n1=parseInt($('#n1').val());
+                for(var i=1;i<=10;i++){
+                    $('#mydiv').html($('#mydiv').html()+`${n1} * ${i} = ${n1*i}<br/>`); 
+                }
+               
+               
+            })
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <form>
+        Number1 : <input type="text" name="num1" id="n1"><br>
+        Number2 : <input type="text" name="num2" id="n2"><br>
+        result : <input type="text" name="result" id="result"><br>
+        <button type="button" name="btn" id="add">Addition</button>
+        <button type="button" name="btn" id="factorial">factorial</button>
+        <button type="button" name="btn" id="table">print table</button>
+    </form>
+    <div id="mydiv">
+
+    </div>
+</body>
+</html>

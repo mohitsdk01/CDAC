@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Names</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    var employees = []; // Array to store employee names
+
+    // Function to add employee name to the array and update the list
+    function addEmployee() {
+        var name = $('#employeeName').val().trim(); // Get the name from the input field
+        if(name !== '') {
+            employees.push(name); // Add the name to the array
+            employees.sort(); // Sort the array alphabetically
+            displayEmployees(); // Display the updated list
+            $('#employeeName').val(''); // Clear the input field
+        }
+    }
+
+    // Function to display the employee names in sorted order
+    function displayEmployees() {
+        var list = '';
+        employees.forEach(function(name) {
+            list += '<li>' + name + '</li>'; // Create a list item for each name
+        });
+        $('#employeeList').html(list); // Display the list
+    }
+
+    // Event listener for adding an employee
+    $('#addEmployeeBtn').click(function(){
+        addEmployee();
+    });
+
+    // Event listener for pressing enter in the input field
+    $('#employeeName').keypress(function(event){
+        if(event.which === 13) {
+            addEmployee();
+        }
+    });
+});
+</script>
+</head>
+<body>
+    <h1>Employee Names</h1>
+    <input type="text" id="employeeName" placeholder="Enter employee name">
+    <button id="addEmployeeBtn">Add Employee</button>
+    <ul id="employeeList"></ul>
+</body>
+</html>
