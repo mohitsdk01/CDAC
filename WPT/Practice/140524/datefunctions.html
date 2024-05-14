@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+       function showdate(){
+         var dt=new Date();
+         $('#mydiv').html(dt);
+       }
+       function getdetails(){
+          var dt1=new Date();
+          var day=dt1.getDay(); //week day number
+          alert("day"+day)
+          var dt2=dt1.getDate();
+          var month=dt1.getMonth()+1 //jan --0; dec--11
+          var yr=dt1.getFullYear();
+          alert(`${dt2}/${month}/${yr}`)
+       }
+       var v;
+       function testdate(){
+         //setTimeout(showdate,1000);
+         v=setInterval(showdate,1000);
+         getdetails();
+         var dt3=new Date('2022-05-14');
+         var dt4=new Date('2023-05-14');
+         var diff=dt4.getTime()-dt3.getTime()
+         var daysdiff=diff/(1000*3600*24)
+         dt4.get
+         console.log("difference : "+daysdiff);
+       }
+       function stoprefresh(){
+          clearInterval(v)
+       }
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id="btn" value="show" onclick="testdate()">show date</button>
+    <button type="button" name="btn" id="stop" value="stop" onclick="stoprefresh()">show date</button>
+    <div id="mydiv"></div>
+</body>
+</html>

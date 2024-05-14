@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function(){
+             function validateTextbox(id,errid){
+                
+                var nm=$('#'+id).val();
+                //alert("in submit function-->  "+nm)
+                if(nm.trim().length>0){
+                    $('#'+errid).html("")
+                    return true;
+                }else{
+                   // alert("in else")
+                    $('#'+errid).html("name cannot be only spaces")
+                    return false;
+                }
+
+             }
+             function validateRadio(nm,errid){
+                var v=$('input[name='+nm+']:checked').val();
+                alert("value: "+ v);
+                if(v===undefined){
+                    $('#'+errid).html("pls select radio button")
+                    return true;
+                }else{
+                    $('#'+errid).html("")
+                    return true;
+                }
+             }
+             function validateCheckboxes(nm,errid){
+                var cnt=0
+                alert("in validatecheckboxes")
+                $('input[name='+nm+']:checked').each(function(index,element){
+                    alert($(element).val());
+                    cnt++;
+                }) 
+                if(cnt>=2){
+                    $('#'+errid).html("")
+                   return true;
+                }
+                else{
+                    $('#'+errid).html("pls select minimum 2 skills")
+                    return false;
+                }
+                /* $('input[name='+nm+']').each(function(index,element){
+                    if($(element).is(':checked')){ //$(element).prop(":checked")
+                    alert(index+"--->"+$(element).val());
+                    cnt++; 
+
+                }
+                if(cnt>=2){
+                    $('#'+errid).html("")
+                   return true;
+                }
+                else{
+                    $('#'+errid).html("pls select minimum 2 skills")
+                    return false;
+                }*/
+                
+             };
+
+             function validatedropdown(id,errid){
+                //v=document.getelementByID('city')
+                //v.options[v.selectedIndex]
+                //to get the text
+                //$('#city option:selected').text();
+                var v=$('#'+id).val();
+                alert("in validate city"+v)
+                if(v==='test'){
+                    $('#'+errid).html("pls select city")
+                    return false;
+                }else{
+                    $('#'+errid).html("")
+                    return true;
+                }
+             }
+               
+            
+            $('#frm1').submit(function(){
+                
+                var flag1=validateTextbox("nm1","errnm1");
+                var flag2=validateRadio("gender","errgender");
+                var flag3=validateCheckboxes("skill","errskills");
+                var flag4=validatedropdown("city","errcity")
+                return flag1 && flag2 && flag3 && flag4;
+            });
+        })
+    </script>
+</head>
+<body>
+<table>
+    <caption>This is registration form</caption>
+    <form method="post" id="frm1">
+    <tr>
+        <td><label for="nm">Name</label></td>
+        <td><input type="text" name="nm" id="nm1" required minlegth="3"/></td><td id="errnm1"></td>
+    </tr>
+    <tr>
+        <td><label for="mob">Mobile</label></td>
+        <td><input type="text" name="mob" id="mob" pattern="^[0-9]{10}$"/></td>
+    </tr>
+    <tr>
+        <td><label for="addr">Address</label></td>
+        <td><textarea name="addr" rows="5" cols="20" id="addr"></textarea></td>
+    </tr>
+    <tr>
+        <td><label for="date">Date of joining</label></td>
+        <td><input type="date" name="date" id="date" min="2024-05-06" max="2024-06-02"></input></td>
+    </tr>
+    <tr>
+        <td><label for="gender">Gender</label></td>
+        <td>
+            <input type="radio" name="gender" id="male" value="male">
+            <label>Male</label>
+            <input type="radio" name="gender" id="Female" value="Female">
+            <label>Female</label>
+        </td><td id="errgender"></td>
+    </tr>
+    <tr>
+        <td><label for="addr">Degree</label></td>
+        <td>
+            <input type="radio" name="degree" id="BTECH" value="BTECH">
+            <label for="BTECH">BTech</label>
+            <input type="radio" name="degree" id="BE" value="BE">
+            <label for="BE">BE</label>
+            <input type="radio" name="degree" id="phd" value="phd">
+            <label for="phd">Phd</label>
+        </td>
+    </tr>
+    <tr>
+        <td><label>Skills</label></td>
+        <td>
+            <fieldset>
+                <legend>Select skills</legend>
+            <input type="checkbox" name="skill" id="java" value="java"/>
+            <label for="java">JAVA</label>
+            <input type="checkbox" name="skill" id="C++" value="C++"/>
+            <label for="C++">C++</label>
+            <input type="checkbox" name="skill" id="python" value="python"/>
+            <label for="python">python</label><br>
+            <input type="checkbox" name="skill" id="Perl" value="Perl"/>
+            <label for="Perl">Perl</label>
+            <input type="checkbox" name="skill" id="Devops" value="Devops"/>
+            <label for="Devops">Devops</label>
+        </fieldset>
+        </td><td id="errskills"></td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>
+            <select id="city" name="city">
+                <option value="test">----select one---</option>
+                <option value="pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Banglore" >Banglore</option>
+                <option value="Nashik">Nashik</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+        </td><td id="errcity"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button type="submit" name="btn" id="btn" value="register">Register</button>
+            <button type="reset" name="btn1" id="btn1" value="reset">Reset</button>
+        </td>
+    </tr>
+
+    </form>
+</table>
+</body>
+</html>

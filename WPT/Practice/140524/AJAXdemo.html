@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+            const displayTable=(arr)=>{
+                var str="<table border='2'><tr><th>Id</th><th>employee name</th><th>employee salary</th></tr>"
+                    for(var ob of arr){
+                        str+=`<tr><td>${ob.id}</td><td>${ob.employee_name}</td><td>${ob.employee_salary}</td></tr>`
+                    }
+                str=str+"</table>"
+                $('#mydiv').html(str);
+            };
+            $('#btn').click(function(){
+                $.ajax({
+                    url:"https://dummy.restapiexample.com/api/v1/employees",
+                    type:'GET',
+                    async:true,
+                    success:function(result){
+                        console.log(result);
+                        displayTable(result.data);
+
+                    },
+                    error:function(error){
+                        console.log(error);
+                    }
+
+                    });
+                    
+
+                })
+            })
+      
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id="btn">get Data</button>
+    <div id="mydiv">
+
+    </div>
+</body>
+</html>

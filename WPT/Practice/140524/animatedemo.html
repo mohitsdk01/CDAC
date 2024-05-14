@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #div1 {
+        background-color: cyan;
+        border: 1px solid red;
+        border-radius: 20px;
+        height: 200px;
+        width: 200px;
+    }
+    
+    .myclass {
+        font-size: 40px;
+    }
+    
+    #div2 {
+        background-color: yellow;
+        border: 1px solid red;
+        border-radius: 20px;
+        height: 200px;
+        width: 200px;
+    }
+</style>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+    $("#animate").click(function(){
+         $('#div1').css('color','red')
+         .addClass("myclass")
+         .animate({
+            "margin":"100px",
+            "width":"500px",
+            "opacity":"0.5"
+         },4000,function(){
+            console.log("animate done!!");
+         })
+
+    })
+
+        });
+    </script>
+</head>
+<body>
+    <button type="button" name="btn1" id="animate">animate</button>
+    
+    <p id="myp"></p>
+    <div id="div1">
+        <p>This <span>is</span> p1</p>
+        <p>This is p2</p>
+        <p>This is p3</p>
+        <p>This is p4</p>
+    </div>
+    <div id="div2">
+        <p>This <span>is</span> p1 3748273487</p>
+        <p>This is p2 2348274387238</p>
+        <p>This is p3 92384902839</p>
+        <p>This is p4 32482908349</p>
+    </div>
+</body>
+</html>

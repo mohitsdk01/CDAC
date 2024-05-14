@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#mydiv').delegate('input[id^=nm]',"focus",function(){
+                $(this).css('background-color',"yellow");
+            })
+            $('#mydiv').delegate('input[id^=nm]',"blur",function(){
+                $(this).css('background-color',"white");
+            })
+            $('#one').one("click",function(){
+                alert("hello world!, will display only once")
+                //assign the event, to add a new text box
+                $('#add').on("click",function(){
+                    var cnt=1;
+                    var a=$('#nm').clone(); 
+                    $(a).val("");
+                    $(a).attr("id","nm"+cnt);
+                    cnt++;
+                    $('#mydiv').append(a);
+
+                })
+            });
+
+            $('#stop').click(function(){
+                //this will remove the event
+                $('#add').off("click")
+                //add the code to display comma separated values of 
+                //all textboxes in the div
+            })
+        })
+        
+
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id="one" value="one">one event</button>
+    <button type="button" name="btn" id="add" value="add">add textbox</button>
+    <button type="button" name="btn" id="stop" value="stop">stop add textbox</button>
+    <div id="mydiv">
+          <input type="text" name="nm" id="nm">
+    </div>
+
+</body>
+</html>

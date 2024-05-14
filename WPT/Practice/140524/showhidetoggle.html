@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height:200px;
+            width:200px;
+            border:2px solid red;
+            border-radius: 10px;
+            background-color: cyan;
+        }
+    </style>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#show').click(function(){
+                $('#div1').show(1000,function(){console.log("show complete div1")})
+                $('#div2').hide(1000,function(){console.log("hide complete div2")})
+            })
+            $('#hide').click(function(){
+                $('#div1').hide(1000,function(){console.log("hide complete div1")})
+                $('#div2').show(1000,function(){console.log("show complete div2")})
+                
+            })
+            $('#toggle').click(function(){
+                $('#div1').toggle(1000,function(){console.log("toggle complete div1")})
+                $('#div2').toggle(1000,function(){console.log("toggle complete div2")})
+            })
+        })
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id="show">show</button>
+    <button type="button" name="btn" id="hide">hide</button>
+    <button type="button" name="btn" id="toggle">toggle</button>
+    <div id="div1">
+        <img src="../images/flowers.png" height="150px" width="150px">
+    </div>
+    <div id="div2">
+        This is div line 1
+        This is div line 2
+
+    </div>
+</body>
+</html>

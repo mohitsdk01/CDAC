@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myc{
+            background-color: aqua;
+            color:blue;
+        }
+        .myclass{
+            background-color: blue;
+            color:white;
+            text-shadow: 2px 2px 2px red;
+        }
+    </style>
+    <script src="./scripts/jquery1.js"></script>
+    <script>
+        $(document).ready(function(){
+           /* $('h1').hover(function(){
+                $(this).addClass('myclass')
+                .removeClass('myc');
+            },function(){
+                $(this).removeClass('myclass')
+                .addClass('myc');
+            });*/
+            $('h1').hover(function(){
+                console.log("toggleClass called")
+                $(this).toggleClass('myclass')
+                .toggleClass('myc');
+            });
+        })
+    </script>
+</head>
+<body>
+    <h1 class="myc">This is h1</h1>
+</body>
+</html>

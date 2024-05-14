@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="/JS/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+
+    <table>
+        <tr>
+            <td><label for="str"></label>Enter String: </td>
+            <td><input type="text" name="str" id="str" autofocus></td>
+        </tr>
+
+        <tr>
+            <td><label for="str"></label>Enter Sub String: </td>
+            <td><input type="text" name="substr" id="substr" autofocus></td>
+        </tr>
+
+        <tr>
+            <td><label for="str"></label>Replace with String: </td>
+            <td><input type="text" name="rstr" id="rstr" autofocus></td>
+        </tr>
+
+        <tr>
+            <td><input type="radio" name="main" id="main" value="Search"></td>
+            <td><label for="main"></label>Search String in Main String</td>
+
+            <td><input type="radio" name="main" id="upper" value="Upper"></td>
+            <td><label for="main"></label>To Upper Case</td>
+
+            <td><input type="radio" name="main" id="lower" value="Lower"></td>
+            <td><label for="main"></label>To Lower Case</td>
+
+            <td><input type="radio" name="main" id="trim" value="Trim"></td>
+            <td><label for="main"></label>Trim Spaces</td>
+
+            <td><input type="radio" name="main" id="concat" value="Concat"></td>
+            <td><label for="main"></label>Concanate</td>
+
+            <td><input type="radio" name="main" id="replace" value="Replace"></td>
+            <td><label for="main"></label>Replace</td>
+        </tr>
+
+        <tr>
+            <td><br><button type="button" id="btn" style="border: 2px solid black;">Submit Query</button></td>
+        </tr>
+    </table>
+
+</body>
+</html>
