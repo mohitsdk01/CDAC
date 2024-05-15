@@ -22,35 +22,75 @@ $(document).ready(function(){
 
     function upperString(){
         let str = $('#str').val().trim();
-        console.log(str.toUpperCase());
+        alert(str.toUpperCase());
     }
 
     function lowerString(){
-
+        let str = $('#str').val().trim();
+        alert(str.toLowerCase());
     }
 
     function trimStr(){
-
+        let str = $('#str').val().trim();
+        alert($.trim(str));
     }
 
     function concatStr(){
-
+        let str = $('#str').val().trim();
+        let str2 = $('#substr').val();
+        alert(str.concat(str2));
     }
 
     function replaceStr(){
-
+        // let str = $('#str').val();
+        // let str2 = $('#rstr').val();
+        let res = str.replace("Mohit", "Mohi");
+        alert(res);
     }
 
     $('#btn').click(function(){
-        switch($('#main').val()){
-            case '[name="Search"]': searchSubstring();
-            case 'Upper' : upperString();
-            case 'Lower' : lowerString();
-            case 'Trim' : trimStr();
-            case 'Concat' : concatStr();
-            case 'Replace' :replaceStr();
-            default : alert('Wrong Choice');
-        }
+        // debugger
+            var selected = $('input[type="radio"]:checked').val();
+            switch(selected){
+                case "Search":
+                    searchSubstring();
+                    break;
+                case "Upper":
+                    upperString();
+                    break;
+                case "Lower":
+                    lowerString();
+                    break;
+                case "Trim":
+                    trimStr();
+                    break;
+                case "Concat":
+                    concatStr();
+                case "Replace":
+                    replaceStr();
+                    break;
+                default:
+                    console.log("No option selected");
+            }
+        // })
     })
-})
-'[name="area"]'
+});
+
+// $(document).ready(function() {
+//     $("#myForm").change(function() {
+//       var selectedValue = $("input[name='choice']:checked").val();
+  
+//       switch (selectedValue) {
+//         case "option1":
+//           console.log("Option 1 selected");
+//           break;
+//         case "option2":
+//           console.log("Option 2 selected");
+//           break;
+//         default:
+//           console.log("No option selected");
+//       }
+//     });
+//   });
+  
+  
