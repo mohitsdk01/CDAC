@@ -12,11 +12,11 @@ $(document).ready(function(){
     $('#btn').click(function(){
         $.ajax({
             url: "https://jsonplaceholder.typicode.com/todos",
-            type:'POST',
+            type:'GET',
             async:true,
             succes:function(result){
-                console.log(result.json());
-                showData(result.data);
+                console.log(result);
+                showData(result.json());
             },
             error: function(err){
                 console.log(err);
