@@ -7,7 +7,7 @@ function showMsg(){
         {
             // printarr[i] = msg;
             // myHTML += '<div class="test">Testing out my script! loop #' + (i + 1) + '</div><br/><br/>';
-            loop += "<div>" + msg +"</div>";
+            loop += "<div>"+msg+"</div>" ;
         }
         document.getElementById("res").innerHTML = loop;
 }

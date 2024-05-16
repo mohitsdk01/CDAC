@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <table>
+        <tr>
+            <h2>Enter Loan Information:</h2>
+            <td><label for="loan">1)Amount of the loan(any currency):</label></td>
+            <td><input type="number" name="loan" id="loan"></td>
+        </tr>
+
+        <tr>
+            <td><label for="loan">2)Annual Percentage rate of interest:</label></td>
+            <td><input type="number" name="rate" id="rate"></td>
+        </tr>
+
+        <tr>
+            <td><label for="loan">3)Repayment period in years:</label></td>
+            <td><input type="number" name="repayment" id="repayment"></td>
+        </tr>
+
+        <tr>
+            <td><button type="button" id="compute" style="width: 100px; height: 30px;">Compute</button></td>
+        </tr>
+
+        <tr><td><h2>Payment Information:</h2></td></tr>
+
+        <tr>
+            <td><label for="loan">4)Your monthly payment will be:</label></td>
+            <td><input type="number" name="monthly_payment" id="monthly_payment" disabled></td>
+        </tr>
+
+        <tr>
+            <td><label for="loan">5)Your total payment will be:</label></td>
+            <td><input type="number" name="total_payment" id="total_payment" disabled></td>
+        </tr>
+
+        <tr>
+            <td><label for="loan">6)Your total interest payment will be:</label></td>
+            <td><input type="number" name="interest_payment" id="interest_payment" disabled></td>
+        </tr>
+
+    </table>
+</body>
+</html>
