@@ -4,41 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js"></script>
 </head>
 <body>
-    <div class="main">
-        <h1>GeeksforGeeks</h1>
-        <h3>Enter your login credentials</h3>
-        <form action="">
-            <label for="first">
-                  Username:
-              </label>
-            <input type="text" 
-                   id="first"
-                   name="first" 
-                   placeholder="Enter your Username" required>
-
-            <label for="password">
-                  Password:
-              </label>
-            <input type="password"
-                   id="password" 
-                   name="password" 
-                   placeholder="Enter your Password" required>
-
-            <div class="wrap">
-                <button type="submit"
-                        onclick="solve()">
-                    Submit
-                </button>
-            </div>
-        </form>
-        <p>Not registered? 
-              <a href="#" 
-               style="text-decoration: none;">
-                Create an account
-            </a>
-        </p>
-    </div>
+    <form action="GET">
+        <table>
+            <tr>
+                <td><label for="uname">Enter User Name: </label></td>
+                <td><input type="text" name="uname" id="uname" autofocus></td>
+            </tr>
+        
+            <tr>
+                <td><label for="pass">Enter Password: </label></td>
+                <td><input type="password" name="pass" id="pass" autofocus></td>
+            </tr>
+        
+            <tr>
+                <td></td>
+                <td><input type="submit" name="uname" id="uname" autofocus></td>
+            </tr>
+           </table>
+    </form>
+   
 </body>
 </html>
