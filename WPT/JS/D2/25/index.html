@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <!-- <form action="display" method="get"> -->
+        <table>
+            <tr>
+                <td><label for="orderId">OrderID:</label></td>
+                <td><input type="number" name="orderId" id="orderId"></td>
+            </tr>
+            <tr>
+                <td><label for="custName">Cust Name:</label></td>
+                <td><input type="text" name="custName" id="custName" minlength="6"></td>
+            </tr>
+            <tr>
+                <td><label for="billing_date">Enter Billing Date:</label></td>
+                <td><input type="date" name="billing_date" id="billing_date"></td>
+            </tr>
+            <tr>
+                <td><label for="shipping_date">Enter Shipping Date:</label></td>
+                <td><input type="date" name="shipping_date" id="shipping_date"></td>
+            </tr>
+            <tr>
+                <td><label for="order_total">Order Total:</label></td>
+                <td><input type="number" name="order_total" id="order_total"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><button type="button" value="display" id="btn">Display</button></td>
+            </tr>
+        </table>
+
+        <div id="res"></div>
+    <!-- </form> -->
+</body>
+</html>

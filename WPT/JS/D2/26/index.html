@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <div>
+        <table>
+            <td><h3>Enter Date Here:</h3></td>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                    <td><input type="text" name="name" id="name" required pattern="[a-zA-Z]" maxlength="10"></td>
+            </tr>
+    
+            <tr>
+                <td><label for="date">Birth Date:</label></td>
+                    <td><input type="date" name="date" id="date" required></td>
+            </tr>
+    
+            <tr>
+                <td><label for="email">Email:</label></td>
+                    <td><input type="email" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="gender"></label>Gender: </td>
+                <td>
+                    <div>
+                        <input type="radio" name="gender" id="male">Male<br>
+                        <input type="radio" name="gender" id="female">Female<br>
+                    </div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td><label for="luckynumber"></label>Lucky Number:</td>
+                <td><input type="number" name="luckynumber" id="luckynumber" required minlength="4"></td>
+            </tr>
+    
+            <tr>
+                <td><label for="favfood">Favourite Foods:</label></td>
+                <td>
+                    <div>
+                        <input type="checkbox" name="pizza" id="pizza">Pizza<br>
+    
+                        <input type="checkbox" name="pizza" id="pizza">Pasta<br>
+    
+                        <input type="checkbox" name="pizza" id="pizza">Chinese
+                    </div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                    <button type="button" value="button">Send Data</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    
+    <div id="result"></div>
+</body>
+</html>
