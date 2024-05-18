@@ -1,7 +1,7 @@
 const http=require('http')
 var server=http.createServer(function(req,resp){
     console.log(req.url+"----"+req.method);
-    resp.writeHeader(200,{'content-type':'text/html'});
+    resp.writeHead(200,{'content-type':'text/html'});
     switch(req.url){
         case "/home":
             resp.write("<h1>In home page</h1>");

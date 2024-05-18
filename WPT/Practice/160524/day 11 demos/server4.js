@@ -11,6 +11,7 @@ var server=http.createServer(function(req,resp){
     var q=url.parse(req.url,true)
     console.log("q: ",q);
     resp.writeHead(200,{'content-type':'text/html'})
+    // here extracted pathname from url, coz form containig query in get method and then url returns all stuff, that's why need to extract path name.
     switch(q.pathname){
         case "/form":
             var rs=fs.createReadStream("./public/form.html");
