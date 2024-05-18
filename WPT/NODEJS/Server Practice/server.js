@@ -9,6 +9,12 @@ var server = http.createServer(function(req, res){
     console.log('q:', q);
     res.writeHead(200,{'content-type':'text/html'});
 
+    switch(q.pathname){
+        case '/login':
+            var reqStr = fs.createReadStream('./login.html');
+            reqStr.pipe(res);
+            break;
+    }
 });
 
 server.listen(3000, ()=>{

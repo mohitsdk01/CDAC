@@ -10,7 +10,7 @@ var server=http.createServer(function(req,resp){
     //query string into a object
     var q=url.parse(req.url,true)
     console.log("q: ",q);
-    resp.writeHeader(200,{'content-type':'text/html'})
+    resp.writeHead(200,{'content-type':'text/html'})
     switch(q.pathname){
         case "/form":
             var rs=fs.createReadStream("./public/form.html");
