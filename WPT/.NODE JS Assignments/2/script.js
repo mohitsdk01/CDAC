@@ -1,0 +1,3 @@
+const ops = require('./mymodule')
+
+
