@@ -27,7 +27,7 @@ router.get("/products/product/:pid",function(req,resp){
 //add data to database
 router.post("/products/:id",function(req,resp){
     console.log(req.body);
-    connection.query("insert into product values(?,?,?,?)",[req.body.pid,req.body.pname,req.body.qty,req.body.price],function(err,result){
+    connection.query("insert into product values(?,?,?,?)",[req.body.pid,req.body.pname,req.body.quantity,req.body.price],function(err,result){
         console.log("in post")
         console.log(req.body);
         if(err){
@@ -57,7 +57,7 @@ router.delete("/products/:id",function(req,resp){
 
 //update data
 router.put("/products/:id",function(req,resp){
-    connection.query("update product set pname=?,qty=?,price=? where pid=?",[req.body.pname,req.body.qty,req.body.price,req.body.pid],function(err,result){
+    connection.query("update product set pname=?,qty=?,price=? where pid=?",[req.body.pname,req.body.quantity,req.body.price,req.body.pid],function(err,result){
         if(err){
             resp.status(500).send("error occured")
         }else{

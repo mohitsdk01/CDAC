@@ -12,7 +12,7 @@ router.get("/products",function(req,resp){
         if(err){
             resp.status(404).send("No data found")
         }else{
-            console.log("data received"+data.length)
+            console.log("data received "+ data.length)
             //send the data to index.ejs
             //  ./views/index.ejs
             resp.render("index",{prodarr:data});
@@ -29,7 +29,7 @@ router.get("/addproducts",function(req,resp){
 
 //add new product into table
 router.post("/insertproduct",function(req,resp){
-    connection.query("insert into product values(?,?,?,?)",[req.body.pid,req.body.pname,req.body.qty,req.body.price],function(err,result){
+    connection.query("insert into product values(?,?,?,?)",[req.body.pid,req.body.pname,req.body.quantity,req.body.price],function(err,result){
         if(err){
             resp.status(500).send("error occurred")
         }else{
