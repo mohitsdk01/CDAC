@@ -17,7 +17,7 @@ var url = [
 var count = 0;
 for(let i in url)
     {
-        if(url[i].includes("www"))
+        if(url[i].startsWith("www"))
             {
                 count++;
             }

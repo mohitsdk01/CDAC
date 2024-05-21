@@ -25,10 +25,10 @@ $(document).ready(function(){
         $('#res').html(list);
     }
 
-    $('#btn').keypress(function(event){
-        if(event.which === 13) {
-            addEmployee();
-        }
-    });
+    // $('#btn').keypress(function(event){
+    //     if(event.which === 13) {
+    //         addEmployee();
+    //     }
+    // });
     
 })

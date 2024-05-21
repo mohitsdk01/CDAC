@@ -24,3 +24,9 @@ function printtable(a){
     }
     return str;
 }
+
+module.exports={
+    factorial,
+    myprime,
+    printtable
+}
