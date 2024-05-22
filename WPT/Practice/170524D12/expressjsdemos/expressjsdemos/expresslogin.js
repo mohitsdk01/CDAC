@@ -1,6 +1,5 @@
 const express=require("express");
 const app=express();
-const bodyparser=require("body-parser");
 const bodyParser = require("body-parser");
 const m1=require("./uservalidatemodule");
 app.use(bodyParser.urlencoded({extended:false}))
