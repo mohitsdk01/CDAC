@@ -17,12 +17,14 @@ var server = http.createServer(function(req, res){
             if(num < 5){
                 res.write(`<h1>Factorial is: ${ops.factorial(num)}</h1>`);
             }
-            else {
-                if(num > 10)
-                res.write(`The numbe is: ${ops.myprime(num)}`);
-                else{
-                    res.write(`The Table is:<br> ${ops.printtable(num)}`);
-                }
+            else if(num > 10)
+                    if(ops.myprime(num) === true)
+                        res.write("Number is Prime");
+                    else{
+                        res.write("Number is not Prime");
+                    }
+            else{
+                res.write(`The Table is:<br> ${ops.printtable(num)}`);
             }
             break;
     }

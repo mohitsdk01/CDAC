@@ -7,19 +7,23 @@ function factorial(a){
     return fact;
 }
 
-function myprime(a){
-    if (a <= 1) return false; // Numbers less than or equal to 1 are not prime
-    for (let i = 2; i < a; i++) {
-        if (a % i === 0) {
-            return "Not Prime"; // If num is divisible by any number other than 1 and itself
+function myprime(number){
+    if (number < 2) {
+        return false;
+      }
+    
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          return false;
         }
-    }
-    return "It is a Prime"; // If no divisors were found, num is a prime number
+      }
+    
+      return true;
 }
 
 function printtable(a){
     let str = "";
-    for(let i of 10){
+    for(let i=1; i<=10; i++){
         str += `${a} * ${i} = ${a * i}<br>`
     }
     return str;
