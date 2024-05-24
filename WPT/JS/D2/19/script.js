@@ -9,7 +9,7 @@
 
 $(document).ready(function(){
     $('#btn').click(function(){
-        debugger
+        //debugger
         var number = $('#num').val();
         if(number > 1000 || number < 0){
             $('#res').html('Entered Number is Out of Range.');

@@ -5,14 +5,19 @@ $(document).ready(function(){
         var name = $('#name').val();
         var birthDate = $('#date').val();
         var email = $('#email').val();
-        // var name = $('#name').val();
         var selectedGender = $('input[type="gender"]:checked').val();
+        var isValid = $("input[name=gender]").is(":checked");
+        if(!isValid){
+            $('.err').html('Select Gender.')
+        }
+        else{
+            $('.err').html('')
+        }
         var luckyNumber = $('#luckynumber').val();
         var selectedFood = new Array();
         $('input[name="box"]:checked').each(function(){
             selectedFood.push(this.value);
         })
-
         $('#result').html(`Name: ${name}<br> Birth Data: ${birthDate}<br> Email: ${email}<br> Gender: ${selectedGender}<br> Lucky Number: ${luckyNumber}<br> List of Fav Food: ${showFood(selectedFood)}`)
     })
 
@@ -23,6 +28,7 @@ $(document).ready(function(){
         }
         return str;
     }
+
     // function showGender(){
 
     // }

@@ -9,11 +9,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <div>
+        <form action="">
         <table>
             <td><h3>Enter Date Here:</h3></td>
             <tr>
                 <td><label for="name">Name:</label></td>
-                    <td><input type="text" name="name" id="name" required pattern="[^a-zA-Z]$" maxlength="10"></td>
+                    <td><input type="text" name="name" id="name" required maxlength="10"></td>
             </tr>
     
             <tr>
@@ -30,7 +31,8 @@
                 <td>
                     <div>
                         <input type="radio" name="gender" id="male">Male<br>
-                        <input type="radio" name="gender" id="female">Female<br>
+                        <input type="radio" name="gender" id="female">Female
+                        <span class="err" id="depterr" style="color: rgb(255, 0, 0);"></span>
                     </div>
                 </td>
             </tr>
@@ -55,10 +57,11 @@
     
             <tr>
                 <td>
-                    <button type="button" id="btn" value="button">Send Data</button>
+                    <button type="submit" id="btn" value="button">Send Data</button>
                 </td>
             </tr>
         </table>
+    </form>
         <br>
     </div>
     
