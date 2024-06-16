@@ -1,0 +1,39 @@
+package com.heathcare.entities;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "appointment")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Appointment extends BaseEntity {	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "doc_id")
+//	@JsonProperty(access = Access.WRITE_ONLY)
+	private Doctor doctor;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "patient_id")
+//	@JsonProperty(access = Access.WRITE_ONLY)
+	private Patient patient;
+	
+//	@Column(name = "appointment_Time")
+//	private LocalDateTime appointmentTime;
+	@Column(name = "status")
+    private String status; // e.g., scheduled, completed, canceled
+}

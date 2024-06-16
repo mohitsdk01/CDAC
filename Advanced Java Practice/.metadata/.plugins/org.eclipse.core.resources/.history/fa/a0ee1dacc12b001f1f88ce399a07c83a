@@ -1,0 +1,7 @@
+package com.heathcare.service;
+
+import com.heathcare.entities.Appointment;
+
+public interface AppointmentService {
+	Appointment createAppointment(Appointment appointment);
+}

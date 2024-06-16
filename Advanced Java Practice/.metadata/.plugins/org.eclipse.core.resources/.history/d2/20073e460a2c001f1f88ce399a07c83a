@@ -1,0 +1,48 @@
+package com.jobs.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jobs.dto.ApiResponse;
+import com.jobs.entities.Job;
+import com.jobs.repository.JobRepository;
+
+@Service
+@Transactional
+public class JobServiceImpl implements JobService {
+
+	@Autowired
+	JobRepository jobRepo;
+	
+	@Override
+	public ApiResponse createNewJob(Job job) {
+		if(job != null) {
+			jobRepo.save(job);
+			return new ApiResponse("Job Posted Successfully...");
+		}
+		return new ApiResponse("");
+	}
+
+	@Override
+	public ApiResponse updateJobDetails(Long jobId, Job job) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ApiResponse deleteJob(Long jobId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Job> getAllJobs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

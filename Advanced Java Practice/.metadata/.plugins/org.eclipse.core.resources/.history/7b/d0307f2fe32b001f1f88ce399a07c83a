@@ -1,0 +1,56 @@
+package com.heathcare.service;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.healthcare.custom_exceptions.ResourceNotFoundException;
+import com.heathcare.entities.Appointment;
+import com.heathcare.entities.Doctor;
+import com.heathcare.entities.Patient;
+import com.heathcare.repository.AppointmentRepository;
+import com.heathcare.repository.DoctorRepository;
+import com.heathcare.repository.PatientRepositoty;
+
+@Service
+@Transactional
+public class AppointmentServiceImpl implements AppointmentService {
+	@Autowired
+	AppointmentRepository appointmentRepo;
+	
+	@Autowired
+	DoctorRepository docRepo;
+	
+	@Autowired
+	PatientRepositoty patRepo;
+
+	@Override
+	public Appointment createAppointment(Long doctorId, Long patientId, LocalDateTime appointmentTime) {
+		System.out.println(doctorId + "" + patientId);
+		if (doctorId == null || patientId == null) {
+            throw new IllegalArgumentException("Doctor ID and Patient ID must not be null!");
+        }
+		
+		if (!isValidAppointmentTime(appointmentTime)) {
+            throw new IllegalArgumentException("Appointment time must be in 30-minute intervals!");
+        }
+		
+		Optional<Doctor> doctor = docRepo.findById(doctorId);
+        Optional<Patient> patient = patRepo.findById(patientId);
+        
+        if(doctor.isPresent() && patient.isPresent()) {
+        	Appointment appointment = new Appointment();
+        	appointment.setDoctor(doctor.get());
+        	appointment.setPatient(patient.get());
+        	appointment.setAppointmentTime(appointmentTime);
+        	appointment.setStatus("scheduled");
+        	return appointmentRepo.save(appointment);
+        }
+        
+		throw new ResourceNotFoundException("Invalid Patient or Doctor Id");
+	}
+}

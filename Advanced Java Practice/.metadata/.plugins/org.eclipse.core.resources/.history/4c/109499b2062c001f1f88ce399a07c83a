@@ -1,0 +1,5 @@
+package com.jobs.entities;
+
+public class BaseEntity {
+
+}

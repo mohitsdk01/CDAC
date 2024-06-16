@@ -1,0 +1,30 @@
+package com.heathcare.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.heathcare.entities.Patient;
+import com.heathcare.repository.PatientRepositoty;
+
+@Service
+@Transactional
+public class PatientServiceImpl implements PatientService {
+
+	PatientRepositoty patientRepo;
+	
+	
+	@Override
+	public Patient createPatientAccount(Patient patient) {
+		return null;
+	}
+
+	@Override
+	public List<Patient> getAllPatient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

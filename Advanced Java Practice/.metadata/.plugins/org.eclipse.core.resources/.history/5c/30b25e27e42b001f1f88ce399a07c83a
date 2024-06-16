@@ -1,0 +1,12 @@
+package com.heathcare.service;
+
+import java.time.LocalDateTime;
+
+import com.heathcare.entities.Appointment;
+
+public interface AppointmentService {
+	Appointment createAppointment
+	(Long doctorId, Long patientId, LocalDateTime appointmentTime);
+	
+//	Appointment createAppointment(Appointment appointment);
+}

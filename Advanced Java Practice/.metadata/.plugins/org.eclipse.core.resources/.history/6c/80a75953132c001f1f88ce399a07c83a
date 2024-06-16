@@ -1,0 +1,6 @@
+package com.hotel.entities;
+
+// Room:Room ID, room number, type (single, double, suite), price, availability.
+public class Rooms extends BaseEntity{
+	
+}
