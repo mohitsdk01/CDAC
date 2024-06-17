@@ -1,0 +1,5 @@
+package com.jobs.service;
+
+public interface JobService {
+	
+}

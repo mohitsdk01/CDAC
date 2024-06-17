@@ -1,0 +1,16 @@
+package com.heathcare.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.heathcare.service.PatientService;
+
+@RestController
+@RequestMapping("/patients")
+public class PatientController {
+	
+	@Autowired
+	PatientService patientService;
+	
+}

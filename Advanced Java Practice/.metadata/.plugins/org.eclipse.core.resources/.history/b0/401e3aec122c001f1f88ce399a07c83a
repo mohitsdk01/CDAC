@@ -1,0 +1,6 @@
+package com.hotel.entities;
+
+// Reservation:Reservation ID, guest name, check-in date, check-out date, room ID, total price.
+public class Reservation extends BaseEntity{
+
+}

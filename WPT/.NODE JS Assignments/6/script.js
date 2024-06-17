@@ -5,11 +5,7 @@ http.createServer(function(req, res){
     var q = url.parse(req.url);
     res.writeHead(200, {'content-type': 'text/html'})
     res.write("Welcome to NodeJS");
-    res.end();  
-    // if(q.pathname === '/'){
-        
-    // }
-
+    res.end();
 }).listen(5000, ()=>{
     console.log("Server is Running...");
 })

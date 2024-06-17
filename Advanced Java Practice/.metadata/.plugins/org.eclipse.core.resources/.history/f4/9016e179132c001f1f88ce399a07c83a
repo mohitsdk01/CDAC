@@ -1,0 +1,11 @@
+package com.hotel.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+// Room:Room ID, room number, type (single, double, suite), price, availability.
+@Entity
+@Table(name = "rooms")
+public class Rooms extends BaseEntity{
+	
+}

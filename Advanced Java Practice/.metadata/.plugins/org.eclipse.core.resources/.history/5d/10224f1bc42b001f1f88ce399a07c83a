@@ -1,0 +1,5 @@
+package com.heathcare.service;
+
+public interface PatientService {
+
+}

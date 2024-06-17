@@ -1,0 +1,8 @@
+package com.heathcare.service;
+
+import com.heathcare.entities.Patient;
+
+public interface PatientService {
+	Patient createPatientAccount(Patient patient);
+	
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Hotel_Room_Reservation_REST"/>
+<aop-project name="Job_Posting_REST"/>
+<aop-project name="HealthCare_REST"/>
+</aop-reference-model>

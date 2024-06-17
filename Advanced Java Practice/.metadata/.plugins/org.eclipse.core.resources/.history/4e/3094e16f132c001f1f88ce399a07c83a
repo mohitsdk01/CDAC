@@ -1,0 +1,9 @@
+package com.hotel.entities;
+
+import javax.persistence.MappedSuperclass;
+
+// Room:Room ID, room number, type (single, double, suite), price, availability.
+@MappedSuperclass
+public class Rooms extends BaseEntity{
+	
+}
