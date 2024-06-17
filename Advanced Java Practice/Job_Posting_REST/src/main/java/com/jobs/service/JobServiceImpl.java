@@ -8,10 +8,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jobs.custom_exceptions.ResourceNotFoundException;
 import com.jobs.dto.ApiResponse;
 import com.jobs.entities.Job;
 import com.jobs.repository.JobRepository;
-import com.jobs_exceptions.ResourceNotFoundException;
 
 @Service
 @Transactional
