@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\ACTS\Advanced Java Practice\Product_REST"/>
 			<item value="D:\Advanced Java Practice\spring_boot_backend_template"/>
 		</list>
 		<list key="projectNameTemplate">

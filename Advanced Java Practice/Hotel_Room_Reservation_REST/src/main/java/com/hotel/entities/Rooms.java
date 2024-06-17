@@ -15,11 +15,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class Rooms extends BaseEntity{
 	private Long roomNumber;
 	private String roomType;
 	private double price;
-	private boolean isAvailable;
+	private boolean isAvailable = true;
 }
