@@ -2,12 +2,18 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\ACTS\Advanced Java Practice\spring_boot_backend_template"/>
+			<item value="D:\ACTS\Advanced Java Practice\Servers"/>
+			<item value="D:\ACTS\Advanced Java Practice\Recipe"/>
+			<item value="D:\ACTS\Advanced Java Practice\Product_REST"/>
+			<item value="D:\ACTS\Advanced Java Practice\Job_Posting_REST"/>
+			<item value="D:\ACTS\Advanced Java Practice\Hotel_Room_Reservation_REST"/>
+			<item value="D:\ACTS\Advanced Java Practice\HealthCare_REST"/>
 			<item value="E:\WorkSpace New\CDAC\Advanced Java Practice\spring_boot_backend_template"/>
 			<item value="E:\WorkSpace New\CDAC\Advanced Java Practice\Product_REST"/>
 			<item value="E:\WorkSpace New\CDAC\Advanced Java Practice\Job_Posting_REST"/>
 			<item value="E:\WorkSpace New\CDAC\Advanced Java Practice\Hotel_Room_Reservation_REST"/>
 			<item value="E:\WorkSpace New\CDAC\Advanced Java Practice\HealthCare_REST"/>
-			<item value="D:\ACTS\Advanced Java Practice\Product_REST"/>
 			<item value="D:\Advanced Java Practice\spring_boot_backend_template"/>
 		</list>
 		<list key="projectNameTemplate">

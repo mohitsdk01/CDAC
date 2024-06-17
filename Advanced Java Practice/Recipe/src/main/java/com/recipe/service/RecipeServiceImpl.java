@@ -3,7 +3,6 @@ package com.recipe.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.recipe.custom_exceptions.ResourceNotFoundException;
@@ -30,7 +29,7 @@ public class RecipeServiceImpl implements RecipeService {
 		User author = userRepo.getByName(recipe.getAuthor().getName());
 		recipe.setAuthor(author);
 		recipeRepo.save(recipe);
-		return new ApiResponse("Recipe Added.");
+		return new ApiResponse("Recipe Added." + " " + recipe.getId());
 	}
 
 
@@ -47,17 +46,33 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public ApiResponse updateRecipe(Long recipeId, Recipe recipe) {
+		String msg = "Invalid Recipe Id!!!";
 		Recipe recipe1 = recipeRepo.findById(recipeId).orElse(null);
 		if(recipe != null) {
 			recipe1.setTitle(recipe.getTitle());
 			recipe1.setIngredients(recipe.getIngredients());
 			recipe1.setInstructions(recipe.getInstructions());
 			recipe1.setCusineType(recipe.getCusineType());
-			recipe1.setTitle(recipe.getTitle());
+			recipe1.setDifficultyLevel(recipe.getDifficultyLevel());
+			recipe1.setDescription(recipe.getDescription());
+			recipe1.setDate(recipe.getDate());
+			recipeRepo.save(recipe1);
+			msg = "Recipe Updated :" + " " + recipeId;
 		}
-		return null;
+		else {
+			throw new ResourceNotFoundException(msg);
+		}
+		return new ApiResponse(msg);
 	}
-	
-	
 
+
+	@Override
+	public ApiResponse deleteRecipe(Long recipeId) {
+		Recipe recipe = recipeRepo.findById(recipeId).orElse(null); 
+		if(recipe != null) {
+			recipeRepo.deleteById(recipeId);
+			return new ApiResponse("Recipe Deleted!");
+		}
+		return new ApiResponse("Recipe Not Found!");		
+	}
 }

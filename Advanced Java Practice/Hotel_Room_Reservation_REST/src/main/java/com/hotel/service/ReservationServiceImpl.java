@@ -24,19 +24,6 @@ public class ReservationServiceImpl implements ReservationService {
 	
 	@Autowired
 	RoomsRepository roomRepo;
-
-//	@Override
-//	public ApiResponse createReservation(Reservation reservation) {
-//		Reservation reservation1 = new Reservation();
-//		reservation1.setGuestName(reservation.getGuestName());
-//		reservation1.setCheckInDate(reservation.getCheckInDate());
-//		reservation1.setCheckOutDate(reservation.getCheckOutDate());
-//		reservation1.setTotalPrice(5000);
-////		reservation1.setRoom(reservation.getRoom().getId());
-//		
-//		reservationRepo.save(null);
-//		return new ApiResponse("");
-//	}
 	
 	@Override
 	public ApiResponse createReservation

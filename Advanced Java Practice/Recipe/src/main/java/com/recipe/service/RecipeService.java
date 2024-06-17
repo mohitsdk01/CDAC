@@ -11,4 +11,6 @@ public interface RecipeService {
 
 	ApiResponse updateRecipe(Long recipeId, Recipe recipe);
 
+	ApiResponse deleteRecipe(Long recipeId);
+
 }
