@@ -18,5 +18,8 @@ import lombok.ToString;
 //@AllArgsConstructor
 //@NoArgsConstructor
 public class Rooms extends BaseEntity{
-	
+	private Long roomNumber;
+	private String roomType;
+	private double price;
+	private boolean isAvailable;
 }
