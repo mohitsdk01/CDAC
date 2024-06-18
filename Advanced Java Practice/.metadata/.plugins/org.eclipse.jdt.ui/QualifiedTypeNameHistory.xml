@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.hotel.entities.Reservation"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="com.hotel.repository.RoomsRepository"/>
     <fullyQualifiedTypeName name="com.hotel.dto.ApiResponse"/>
     <fullyQualifiedTypeName name="com.hotel.service.RoomsService"/>
     <fullyQualifiedTypeName name="java.time.temporal.ChronoUnit"/>
@@ -22,13 +19,10 @@
     <fullyQualifiedTypeName name="com.automobile.repository.UserRepository"/>
     <fullyQualifiedTypeName name="com.automobile.service.UserService"/>
     <fullyQualifiedTypeName name="com.automobile.entities.User"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.automobile.entities.Vehicle"/>
     <fullyQualifiedTypeName name="com.automobile.custom_exceptions.ResourceNotFoundException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="com.automobile.dto.ApiResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="com.institute.entities.BaseEntity"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
@@ -43,21 +37,27 @@
     <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
-    <fullyQualifiedTypeName name="com.institute.service.StudentService"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="com.institute.service.CourseService"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="com.institute.repository.CourseRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.responses.ApiResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="com.institute.dto.ApiResponse"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.institute.service.StudentService"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.institute.dto.ApiResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="com.institute.repository.StudentRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.institute.repository.CourseRepository"/>
+    <fullyQualifiedTypeName name="com.institute.entities.Course"/>
+    <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.Operation"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 </qualifiedTypeNameHistroy>

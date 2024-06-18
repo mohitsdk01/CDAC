@@ -1,10 +1,10 @@
 package com.jobs.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,9 @@ public class JobServiceImpl implements JobService {
 
 	@Autowired
 	JobRepository jobRepo;
+	
+	@Autowired
+	ModelMapper mapper;
 	
 	@Override
 	public ApiResponse createNewJob(Job job) {
@@ -46,6 +49,13 @@ public class JobServiceImpl implements JobService {
 		else {
 			throw new ResourceNotFoundException("Invalid Job Id!");
 		}
+		
+//		if(jobRepo.existsById(jobId)) {
+//	//		jobRepo.save(mapper.map(job, Job.class));
+//			jobRepo.save(job);
+//			msg = "Updated Job details!";
+//		}
+		
 		return new ApiResponse(msg);
 	}
 
