@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="AutoMobile_REST"/>
+<aop-project name="template_for_exam"/>
 <aop-project name="HealthCare_REST"/>
+<aop-project name="Institute"/>
 </aop-reference-model>
