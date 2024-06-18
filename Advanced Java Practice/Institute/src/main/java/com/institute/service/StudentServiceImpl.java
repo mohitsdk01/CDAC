@@ -1,5 +1,7 @@
 package com.institute.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,12 @@ public class StudentServiceImpl implements StudentService {
 			}
 		}
 		return new ApiResponse(msg);
+	}
+
+	@Override
+	public List<Student> getAllStudentsOfSpecificCourse(String name) {
+		courseRepo.findByName(name);
+		return studRepo.findAllByCourse(name);
 	}
 
 }

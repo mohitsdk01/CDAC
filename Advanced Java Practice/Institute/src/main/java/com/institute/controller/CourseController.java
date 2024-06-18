@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.institute.entities.Course;
+import com.institute.entities.Student;
 import com.institute.service.CourseService;
 
 @RestController
