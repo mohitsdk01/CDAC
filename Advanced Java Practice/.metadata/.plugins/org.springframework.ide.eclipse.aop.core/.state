@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="Hotel_Room_Reservation_REST"/>
 <aop-project name="AutoMobile_REST"/>
+<aop-project name="Job_Posting_REST"/>
+<aop-project name="Product_REST"/>
+<aop-project name="Recipe"/>
 <aop-project name="template_for_exam"/>
 <aop-project name="HealthCare_REST"/>
+<aop-project name="Library"/>
 <aop-project name="Institute"/>
+<aop-project name="vs_coded"/>
 </aop-reference-model>

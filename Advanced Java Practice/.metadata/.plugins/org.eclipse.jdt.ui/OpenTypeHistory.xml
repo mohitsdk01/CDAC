@@ -2,4 +2,6 @@
 <typeInfoHistroy>
     <typeInfo handle="=AutoMobile_REST/C:\/Users\/DELL\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/2.7.18\/spring-data-jpa-2.7.18.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/2.7.18=/=/maven.scope=/compile=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1718181743731"/>
     <typeInfo handle="=Institute/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.institute.service{CourseService.java[CourseService" modifiers="513" timestamp="1718693950894"/>
+    <typeInfo handle="=AutoMobile_REST/C:\/Program Files\/Java\/jdk-11\/lib\/jrt-fs.jar`java.base=/maven.pomderived=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&lt;java.lang(RuntimeException.class[RuntimeException" modifiers="33" timestamp="1712245569543"/>
+    <typeInfo handle="=Library/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.library.service{LibraryService.java[LibraryService" modifiers="513" timestamp="1718721273308"/>
 </typeInfoHistroy>
